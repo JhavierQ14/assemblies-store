@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root{
+   --yellow:#fed330;
+   --red:#e74c3c;
+   --white:#fff;
+   --black:#222;
+   --light-color:#777;
+   --border:.2rem solid var(--black);
+   --light-bg:#f5f5f5;
+}
+
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition: .2s linear;
+}
+
+*::selection{
+   background-color: var(--yellow);
+   color:var(--black);
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background: linear-gradient(135deg, #e0e7ef 0%, #cfd9df 100%);
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+}
+
+.login-container{
+   width: 100%;
+   max-width: 45rem;
+}
+
+.login-box{
+   background-color: #fff;
+   border-radius: 1rem;
+   box-shadow: 0 1rem 3rem rgba(80,100,120,0.10);
+   overflow: hidden;
+}
+
+.logo-section{
+   background-color: #222e3a;
+   color: #fff;
+   text-align: center;
+   padding: 3rem 2rem;
+}
+
+.logo-section h1{
+   font-size: 3rem;
+   margin-bottom: .5rem;
+   letter-spacing: 1px;
+}
+
+.logo-section p{
+   font-size: 1.6rem;
+   color: #b0b8c1;
+}
+
+.login-form{
+   padding: 3rem 2rem;
+}
+
+.login-form h3{
+   font-size: 2.5rem;
+   color: #222e3a;
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: capitalize;
+}
+
+.input-group{
+   position: relative;
+   margin-bottom: 2rem;
+}
+
+.input-group i{
+   position: absolute;
+   top: 50%;
+   left: 1.5rem;
+   transform: translateY(-50%);
+   font-size: 1.8rem;
+   color: var(--light-color);
+   z-index: 1;
+}
+
+.input-group .box{
+   width: 100%;
+   padding: 1.5rem 1.5rem 1.5rem 5rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   border: 1.5px solid #cfd9df;
+   border-radius: .5rem;
+   background-color: #f5f7fa;
+}
+
+.input-group .box:focus{
+   background-color: #fff;
+   border-color: #222e3a;
+}
+
+.btn{
+   width: 100%;
+   padding: 1.5rem;
+   font-size: 2rem;
+   background-color: #222e3a;
+   color: #fff;
+   border-radius: .5rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   font-weight: 500;
+   margin-bottom: 2rem;
+}
+
+.btn:hover{
+   background-color: #3a4a5d;
+   color: #ffd700;
+}
+
+.links{
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.forgot-password{
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.forgot-password:hover{
+   color: #222e3a;
+}
+
+.register-link{
+   text-align: center;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.register-link a{
+   color: #222e3a;
+   font-weight: 500;
+}
+
+.register-link a:hover{
+   color: #ffd700;
+}
+
+.social-login {
+   padding: 0 2rem 2.5rem 2rem;
+   text-align: center;
+}
+
+.social-title {
+   font-size: 1.5rem;
+   color: #888;
+   margin-bottom: 1.5rem;
+   margin-top: 1rem;
+   letter-spacing: .5px;
+}
+
+.social-btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   width: 100%;
+   max-width: 320px;
+   margin: 0 auto 1rem auto;
+   padding: 1.2rem 0;
+   font-size: 1.7rem;
+   border-radius: .5rem;
+   border: none;
+   cursor: pointer;
+   font-weight: 500;
+   transition: background .2s, color .2s;
+   background: #f5f7fa;
+   color: #222e3a;
+   box-shadow: 0 2px 8px rgba(80,100,120,0.04);
+}
+
+.social-btn i {
+   font-size: 2rem;
+}
+
+.social-btn.google {
+   border: 1.5px solid #ea4335;
+}
+.social-btn.google:hover {
+   background: #ea4335;
+   color: #fff;
+}
+
+.social-btn.facebook {
+   border: 1.5px solid #1877f3;
+}
+.social-btn.facebook:hover {
+   background: #1877f3;
+   color: #fff;
+}
+
+.social-btn.microsoft {
+   border: 1.5px solid #5e5e5e;
+}
+.social-btn.microsoft:hover {
+   background: #5e5e5e;
+   color: #fff;
+}
+
+/* Responsive */
+@media (max-width:768px){
+   html{
+      font-size: 55%;
+   }
+   
+   .login-container{
+      max-width: 40rem;
+   }
+}
+
+@media (max-width:450px){
+   html{
+      font-size: 50%;
+   }
+   
+   body{
+      padding: 1rem;
+   }
+   
+   .login-form{
+      padding: 2rem 1.5rem;
+   }
+   
+   .logo-section{
+      padding: 2rem 1.5rem;
+   }
+}
+
+@media (max-width:768px){
+   .social-login {
+      padding: 0 1.5rem 2rem 1.5rem;
+   }
+}

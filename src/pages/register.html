@@ -4,130 +4,73 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
+   <title>Registro - Assemblies Store</title>
 
-   <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-
+   <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-   
-<header class="header">
 
-   <section class="flex">
-
-      <a href="home.html" class="logo">Assemblies Store</a>
-
-      <nav class="navbar">
-         <a href="home.html">Inicio</a>
-         <a href="about.html">Acerca de nosotros</a>
-         <a href="menu.html">Tienda</a>
-         <a href="orders.html">Compras</a>
-         <a href="contact.html">Ofertas</a>
-      </nav>
-
-      <div class="icons">
-         <a href="search.html"><i class="fas fa-search"></i></a>
-         <a href="cart.html"><i class="fas fa-shopping-cart"></i><span>(3)</span></a>
-         <div id="user-btn" class="fas fa-user"></div>
-         <div id="menu-btn" class="fas fa-bars"></div>
+<div class="login-container">
+   <div class="login-box">
+      <div class="logo-section">
+         <h1>Assemblies Store</h1>
+         <p>Tu tienda de hardware y componentes</p>
       </div>
 
-      <div class="profile">
-         <p class="name">shaikh anas</p>
-         <div class="flex">
-            <a href="profile.html" class="btn">profile</a>
-            <a href="#" class="delete-btn">logout</a>
+      <form action="" method="post" class="login-form">
+         <h3>Crea tu cuenta</h3>
+         
+         <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" required maxlength="50" name="name" placeholder="Nombre completo" class="box">
          </div>
-         <p class="account"><a href="login.html">login</a> or <a href="register.html">register</a></p>
+
+         <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" required maxlength="50" name="email" placeholder="Correo electrónico" class="box">
+         </div>
+
+         <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" required maxlength="20" name="pass" placeholder="Contraseña" class="box">
+         </div>
+
+         <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" required maxlength="20" name="confirm_pass" placeholder="Confirmar contraseña" class="box">
+         </div>
+
+         <input type="submit" value="Registrarse" class="btn" name="submit">
+
+         <p class="register-link">¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+      </form>
+
+      <div class="social-login">
+         <p class="social-title">O regístrate con</p>
+         <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
+         <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+         <button class="social-btn microsoft"><i class="fab fa-microsoft"></i> Microsoft</button>
       </div>
-
-   </section>
-
-</header>
-
-<section class="form-container">
-
-   <form action="" method="post">
-      <h3>Regístrate</h3>
-      <input type="text" required maxlength="20" name="name" placeholder="Ingresa tu nombre" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="email" required maxlength="50" name="email" placeholder="Ingresa tu correo electrónico" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="number" min="0" max="9999999999" onkeypress="if(this.value.length == 10) return false;" placeholder="Ingresa tu número" required class="box" name="number">
-      <input type="password" required maxlength="20" name="pass" placeholder="Crea una contraseña" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="password" required maxlength="20" name="cpass" placeholder="Confirma tu contraseña" class="box" oninput="this.value = this.value.replace(/\s/g, '')">
-      <input type="submit" value="Registrarse" class="btn" name="submit">
-      <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
-   </form>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer">
-
-   <section class="box-container">
-
-      <div class="box">
-         <img src="images/email-icon.png" alt="">
-         <h3>our email</h3>
-         <a href="mailto:shaikhanas@gmail.com">shaikhanas@gmail.com</a>
-         <a href="mailto:anasbhai@gmail.com">anasbhai@gmail.com</a>
-      </div>
-
-      <div class="box">
-         <img src="images/clock-icon.png" alt="">
-         <h3>opening hours</h3>
-         <p>00:07am to 00:10pm </p>
-      </div>
-
-      <div class="box">
-         <img src="images/map-icon.png" alt="">
-         <h3>our address</h3>
-         <a href="https://www.google.com/maps">mumbai, india - 400104</a>
-      </div>
-
-      <div class="box">
-         <img src="images/phone-icon.png" alt="">
-         <h3>our number</h3>
-         <a href="tel:1234567890">+123-456-7890</a>
-         <a href="tel:1112223333">+111-222-3333</a>
-      </div>
-
-   </section>
-
-   <div class="credit">&copy; copyright @ 2022 by <span>mr. web designer</span> | all rights reserved!</div>
-
-</footer>
-
-<div class="loader">
-   <img src="images/loader.gif" alt="">
+   </div>
 </div>
-
-<script src="js/script.js"></script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
