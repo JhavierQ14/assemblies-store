@@ -11,7 +11,7 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/style.css">
-
+   <link rel="stylesheet" href="../css/pages/checkout.css">
 </head>
 <body>
    
@@ -24,70 +24,41 @@
    <p><a href="home.html">Inicio </a> <span> / Checkout</span></p>
 </div>
 
-<section class="checkout">
+<<section class="checkout">
    <h1 class="title">Resumen de tu pedido</h1>
-   <form action="" method="post">
+  <form action="" method="post" class="checkout-container">
+
+      <!-- Columna izquierda - Productos -->
       <div class="cart-items">
          <h3>Productos en tu carrito</h3>
-         <p><span class="name">Memoria RAM DDR5 Corsair 16GB</span><span class="price">$120</span></p>
-         <p><span class="name">Procesador Intel Core i7-13700K</span><span class="price">$350</span></p>
-         <p><span class="name">SSD Samsung 980 PRO 1TB</span><span class="price">$110</span></p>
-         <p class="grand-total"><span class="name">Total a pagar :</span> <span class="price">$580</span></p>
-         <a href="cart.html" class="btn">Ver carrito</a>
+         <!-- Se llenan con JS -->
       </div>
+
+      <!-- Columna derecha - Información del usuario -->
       <div class="user-info">
          <h3>Tus datos</h3>
          <p><i class="fas fa-user"></i> <span>Juan Pérez</span></p>
          <p><i class="fas fa-phone"></i> <span>50344567890</span></p>
          <p><i class="fas fa-envelope"></i> <span>juan.perez@assemblies.com</span></p>
-         <a href="update_profile.html" class="btn">Actualizar datos</a>
+         <a href="update_profile.html" class="btn secondary-btn">Actualizar datos</a>
+
          <h3>Dirección de entrega</h3>
          <p class="address"><i class="fas fa-map-marker-alt"></i> <span>Colonia Escalón, San Salvador, El Salvador</span></p>
-         <a href="update_address.html" class="btn">Actualizar dirección</a>
+         <a href="update_address.html" class="btn secondary-btn">Actualizar dirección</a>
+
          <select name="method" class="box" required>
             <option value="" disabled selected>Selecciona método de pago</option>
             <option value="cash on delivery">Pago contra entrega</option>
             <option value="credit card">Tarjeta de crédito</option>
             <option value="paypal">PayPal</option>
          </select>
+
+         <input type="submit" value="Realizar pedido" name="order" class="btn order-btn">
       </div>
-      <input type="submit" value="Realizar pedido" name="order" class="btn order-btn">
    </form>
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer">
-  <div id="footer"></div>
-</footer>
-
-<div class="loader">
-   <img src="images/loader.gif" alt="">
-</div>
-
-<script src="js/script.js"></script>
-<script src="js/include-fragments.js"></script>
-
+<script src="../js/checkout.js"></script>
 </body>
 </html>

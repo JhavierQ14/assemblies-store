@@ -3,3 +3,186 @@
 .heading, .checkout {
   /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
 }
+
+/* --- INICIO: Estilos movidos desde style.css para checkout --- */
+.checkout form{
+   max-width: 50rem;
+   margin:0 auto;
+   border:var(--border);
+   padding:2rem;
+}
+
+.checkout form .cart-items{
+   background-color: var(--black);
+   padding:2rem;
+}
+
+.checkout form .cart-items h3{
+   font-size: 2.5rem;
+   color: var(--white);
+   text-transform: capitalize;
+   margin-bottom: 2rem;
+}
+
+.checkout form .cart-items p{
+   display: flex;
+   gap:1.5rem;
+   align-items: center;
+   justify-content: space-between;
+   margin:1rem 0;
+   line-height: 1.5;
+   font-size: 2rem;
+}
+
+.checkout form .cart-items p .name{
+   color: var(--white);
+}
+
+.checkout form .cart-items p .price{
+   color: var(--yellow);
+}
+
+.checkout form .cart-items .grand-total{
+   background-color:var(--white);
+   padding:1rem;
+}
+
+.checkout form .cart-items .grand-total .name{
+   color: var(--black);
+}
+
+.checkout form .cart-items .grand-total .price{
+   color: var(--red);
+}
+
+.checkout form .user-info h3{
+   font-size: 2.5rem;
+   margin: 2rem 0;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.checkout form .user-info p{
+   line-height: 1.5;
+   font-size: 2rem;
+   margin:1rem 0;
+}
+
+.checkout form .user-info p span{
+   color: var(--black);
+}
+
+.checkout form .user-info p i{
+   color: var(--light-color);
+   margin-right: .7rem;
+}
+
+.checkout form .user-info .box{
+   width: 100%;
+   border:var(--border);
+   padding:1.4rem;
+   color: var(--black);
+   font-size: 1.8rem;
+   margin-top: 2rem;
+}
+
+.checkout form .order-btn{
+   margin-top: 2rem;
+   width: 100%;
+   background-color: var(--black);
+   color: var(--white);
+}
+
+
+
+
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cart-items,
+.user-info {
+  flex: 1 1 48%;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cart-items h3,
+.user-info h3 {
+  font-size: 2rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.cart-items p,
+.user-info p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+.cart-items .price {
+  color: #eab308;
+  font-weight: bold;
+}
+
+.cart-items .grand-total {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f0f0f0;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  color: #c0392b;
+}
+
+.btn {
+  background-color: #1a8b5c;
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-align: center;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.btn:hover {
+  background-color: #145f40;
+}
+
+.secondary-btn {
+  background-color: #444;
+}
+
+.secondary-btn:hover {
+  background-color: #222;
+}
+
+.box {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}

@@ -1,5 +1,219 @@
 /* Estilos específicos para about.html */
 
 .heading, .about, .steps, .reviews {
-  /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
+  
+.about {
+  background-color: #0f1115;
+  color: #eaeaea;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.about .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a1d24;
+}
+
+.about-text {
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  color: #413c3c;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.feature {
+  background-color: #1a1d24;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 213, 0.2);
+}
+
+.feature .icon {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #bcbcbc;
+}
+
+@media (min-width: 768px) {
+  .about-features {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .feature {
+    flex: 1;
+    margin: 0 10px;
+  }
+}
+****************************************************************************************************************
+
+.steps {
+  background-color: #0f172a; /* gris oscuro tipo tecnología */
+  padding: 60px 20px;
+  color: #f1f5f9; /* texto claro */
+  text-align: center;
+}
+
+.steps-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #0f172a; /* celeste vibrante */
+  font-weight: 700;
+  text-align: center;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+}
+
+.step-box {
+  background-color: #2a446f;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+}
+
+.step-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+}
+
+.step-box {
+  text-align: center;
+}
+
+.step-box img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.step-box h3 {
+  font-size: 1.3rem;
+  color: #f8fafc;
+  margin-bottom: 10px;
+}
+
+.step-box p {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+******************************************************************************************************************************************
+.reviews {
+  background: #f8f9fa;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.reviews .title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.reviews-slider {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.reviews .slide {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.reviews .slide:hover {
+  transform: translateY(-10px);
+}
+
+.reviews .slide img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #007bff;
+}
+
+.reviews .slide p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.reviews .stars {
+  color: #ffc107;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.reviews .slide h3 {
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.swiper-pagination-bullets {
+  bottom: -20px !important;
+}
+
+.swiper-pagination-bullet {
+  background: #007bff;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
+
+}
+

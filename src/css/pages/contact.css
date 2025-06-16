@@ -1,5 +1,258 @@
 /* Estilos específicos para contact.html */
-
-.heading, .contact {
-  /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
+.contact {
+   padding: 5rem 2rem;
+   background-color: #f4f6f9;
 }
+
+.contact .row {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: stretch; /* Asegura que ambos hijos tengan el mismo alto */
+   max-width: 1200px;
+   margin: 0 auto;
+   background: #fff;
+   border-radius: 1rem;
+   box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+   overflow: hidden;
+   min-height: 450px; /* Altura mínima para asegurar proporción */
+}
+
+.contact .image {
+   flex: 1 1 50%;
+   background-color: #e9ecef;
+   display: flex;
+   align-items: center; /* Centra verticalmente la imagen */
+   justify-content: center; /* Centra horizontalmente la imagen */
+   padding: 0;
+   min-width: 200px;
+   height: 100%;
+}
+
+.contact .image img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 0;
+   box-shadow: none;
+   display: block;
+   max-width: 500px; /* Opcional: limita el ancho máximo para mejor centrado visual */
+   max-height: 600px; /* Opcional: limita el alto máximo */
+}
+
+/* Form container */
+.contact form {
+   flex: 1 1 50%;
+   padding: 3rem 4rem;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   height: 100%;
+   min-height: 100%;
+}
+
+.contact form h3 {
+   font-size: 2.5rem;
+   color: #222;
+   font-weight: 700;
+   margin-bottom: 2rem;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Inputs */
+.contact form .box {
+   width: 100%;
+   padding: 1.2rem 1.5rem;
+   margin: 1rem 0;
+   border: 1px solid #ccc;
+   border-radius: 0.6rem;
+   background: #f9f9f9;
+   font-size: 1rem;
+   transition: all 0.3s ease;
+   font-family: 'Segoe UI', sans-serif;
+}
+
+.contact form .box:focus {
+   border-color: #185ea9;
+   background-color: #fff;
+   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+   outline: none;
+}
+
+/* Textarea */
+.contact form textarea.box {
+   resize: vertical;
+   min-height: 150px;
+}
+
+/* Button */
+.contact form .btn {
+   background: #212529;
+   color: #fff;
+   border: none;
+   padding: 1rem 2.5rem;
+   font-size: 1rem;
+   border-radius: 0.6rem;
+   cursor: pointer;
+   margin-top: 1rem;
+   transition: background 0.3s ease;
+   font-family: 'Segoe UI', sans-serif;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact form .btn:hover {
+   background: #007bff;
+}
+
+/* Heading */
+.heading {
+   text-align: center;
+   background: #f1f3f5;
+   padding: 2rem;
+}
+
+.heading h3 {
+   font-size: 2.5rem;
+   color: #111;
+   margin-bottom: 0.5rem;
+}
+
+.heading p {
+   font-size: 1rem;
+   color: #555;
+}
+
+.heading a {
+   color: #007bff;
+   text-decoration: none;
+}
+
+.heading a:hover {
+   text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+   .contact .row {
+      flex-direction: column;
+      min-height: unset;
+   }
+
+   .contact .image,
+   .contact form {
+      flex: 1 1 100%;
+      height: auto;
+      min-height: 220px;
+   }
+
+   .contact .image {
+      min-height: 180px;
+   }
+
+   .contact form {
+      padding: 2rem 1.5rem;
+   }
+
+   .contact form h3 {
+      font-size: 2rem;
+   }
+}
+/* ...código existente... */
+
+.contact .row .image {
+   flex: 1 1 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #e9ecef;
+   padding: 2rem;
+   min-width: 200px;
+}
+
+.contact .row .image img {
+   max-width: 100%;
+   max-height: 350px;
+   width: auto;
+   height: auto;
+   object-fit: contain;
+   border-radius: 1rem;
+   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.contact form .input-group {
+   margin-bottom: 1.5rem;
+   display: flex;
+   flex-direction: column;
+}
+
+.contact form label {
+   font-size: 1.1rem;
+   color: #222;
+   margin-bottom: 0.5rem;
+   font-weight: 500;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
+
+.contact form label i {
+   color: #162f49;
+   font-size: 1.2rem;
+}
+
+
+/* Banner de contacto */
+.contact-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9ecef;
+  border-radius: 1.2rem;
+  padding: 2.5rem 2rem;
+  margin: 2rem auto 3rem auto;
+  max-width: 1100px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  gap: 2rem;
+}
+.contact-banner .banner-text {
+  flex: 1 1 60%;
+}
+.contact-banner .banner-text h2 {
+  font-size: 2.7rem;
+  color: #162f49;
+  margin-bottom: 1rem;
+}
+.contact-banner .banner-text p {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: .5rem;
+}
+.contact-banner .banner-img {
+  flex: 0 0 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-banner .banner-img img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  background: #fff;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .contact-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+  }
+  .contact-banner .banner-img {
+    margin: 0 auto;
+  }
+    }

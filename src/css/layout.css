@@ -1,0 +1,83 @@
+/* =================== LAYOUT HEADER Y FOOTER =================== */
+.header {
+   position: sticky;
+   top:0; left:0; right: 0;
+   z-index: 1000;
+   border-bottom: var(--border);
+   background-color: var(--white);
+}
+.header .flex {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+}
+.header .flex .logo {
+   font-size: 2.5rem;
+   color: var(--black);
+}
+.header .flex .navbar a {
+   margin:0 1rem;
+   font-size: 2rem;
+   color: var(--black);
+}
+.header .flex .navbar a:hover {
+   color: var(--yellow);
+}
+.header .flex .icons > * {
+   font-size: 2.5rem;
+   color: var(--black);
+   margin-left: 1.5rem;
+   cursor: pointer;
+}
+.header .flex .icons > *:hover {
+   color: var(--yellow);
+}
+.header .flex .profile {
+   width: 30rem;
+   position: absolute;
+   top:120%; right: 2rem;
+   background-color: var(--white);
+   border:var(--border);
+   padding:1.5rem;
+   text-align: center;
+   display: none;
+}
+.header .flex .profile.active {
+   display: block;
+}
+.header .flex .profile .name {
+   font-size: 1.7rem;
+   margin-bottom: .5rem;
+}
+.header .flex .profile .account {
+   font-size: 1.7rem;
+   color: var(--light-color);
+   margin-top: 1.5rem;
+}
+.header .flex .profile .account a {
+   color: var(--black);
+   text-decoration: underline;
+}
+.header .flex .profile .account a:hover {
+   color: var(--yellow);
+}
+#menu-btn {
+   display: none;
+}
+.footer {
+   background: var(--black);
+   color: var(--white);
+   padding-top: 3rem;
+   margin-top: 4rem;
+}
+.footer .credit {
+   background-color: var(--black);
+   text-align: center;
+   padding:3rem 2rem;
+   font-size: 2rem;
+   color: var(--white);
+}
+.footer .credit span {
+   color: var(--yellow);
+}
