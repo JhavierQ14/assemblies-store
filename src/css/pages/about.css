@@ -1,3 +1,64 @@
+/* Card de review exclusiva para about.html */
+.review-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 340px;
+  max-height: 340px;
+  height: 340px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.review-card:hover {
+  transform: translateY(-10px);
+}
+
+.review-card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 3px solid #007bff;
+  flex-shrink: 0;
+}
+
+.review-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+  overflow-y: auto;
+  max-height: 90px;
+  min-height: 90px;
+  width: 100%;
+  flex: 1 1 auto;
+  margin-top: 0;
+}
+
+.review-card .stars {
+  color: #ffc107;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.review-card h3 {
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 600;
+  text-transform: capitalize;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
 /* Estilos específicos para about.html */
 
 .heading, .about, .steps, .reviews {
@@ -163,7 +224,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  justify-content: space-between;
+  min-height: 340px;
+  max-height: 340px;
+  height: 340px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .reviews .slide:hover {
@@ -177,6 +243,7 @@
   border-radius: 50%;
   margin-bottom: 20px;
   border: 3px solid #007bff;
+  flex-shrink: 0;
 }
 
 .reviews .slide p {
@@ -185,12 +252,19 @@
   line-height: 1.6;
   margin-bottom: 20px;
   font-style: italic;
+  overflow-y: auto;
+  max-height: 90px;
+  min-height: 90px;
+  width: 100%;
+  flex: 1 1 auto;
+  margin-top: 0;
 }
 
 .reviews .stars {
   color: #ffc107;
   font-size: 1.2rem;
   margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .reviews .slide h3 {
@@ -198,6 +272,8 @@
   color: #222;
   font-weight: 600;
   text-transform: capitalize;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .swiper-pagination-bullets {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,65 +16,69 @@
 
 
 </head>
+
 <body>
-   
-<header class="header"><div id="header"></div></header>
 
-<div class="heading">
-   <h3>Contáctanos</h3>
-   <p><a href="home.html">Inicio </a> <span> / Contacto</span></p>
-</div>
+   <header class="header">
+      <div id="header"></div>
+   </header>
 
-<!-- Banner de contacto -->
-<div class="contact-banner">
-  <div class="banner-text">
-    <h2>Contáctanos</h2>
-    <p>¿Necesitas resolver algún problema o resolver alguna pregunta? Tenemos la solución.</p>
-    <p>Descubre las numerosas maneras de contactarnos y ten la seguridad de que nuestro equipo de expertos está listo para brindarte la información que necesitas.</p>
-  </div>
-  <div class="banner-img">
-    <img src="../images/contacto.jpg" alt="Equipo de soporte">
-  </div>
-</div>
-
-<section class="contact">
-   <div class="row">
-      <div class="image">
-         <img src="../images/pexels-olly-789822.jpg" alt="Ilustración Contacto">
-      </div>
-      <form action="" method="post">
-         <h3>¡Cuéntanos en qué te podemos ayudar!</h3>
-         <div class="input-group">
-            <label for="name"><i class="fas fa-user"></i> Nombre</label>
-            <input type="text" id="name" name="name" required placeholder="Ingresa tu nombre" maxlength="50" class="box">
-         </div>
-         <div class="input-group">
-            <label for="number"><i class="fas fa-phone"></i> Número</label>
-            <input type="number" id="number" name="number" required placeholder="Ingresa tu número" max="9999999999" min="0" class="box" onkeypress="if(this.value.length == 10) return false;">
-         </div>
-         <div class="input-group">
-            <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
-            <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico" maxlength="50" class="box">
-         </div>
-         <div class="input-group">
-            <label for="msg"><i class="fas fa-comment-dots"></i> Mensaje</label>
-            <textarea id="msg" name="msg" placeholder="Escribe tu mensaje" required class="box" cols="30" rows="5" maxlength="500"></textarea>
-         </div>
-         <input type="submit" value="Enviar mensaje" class="btn" name="send">
-      </form>
+   <div class="heading">
+      <h3>Contáctanos</h3>
+      <p><a href="home.html">Inicio </a> <span> / Contacto</span></p>
    </div>
-</section>
 
-<footer class="footer"><div id="footer"></div></footer>
+   <!-- Banner de contacto -->
+   <div class="contact-banner">
+      <div class="banner-text">
+         <h2>Contáctanos</h2>
+         <p>¿Necesitas resolver algún problema o resolver alguna pregunta? Tenemos la solución.</p>
+         <p>Descubre las numerosas maneras de contactarnos y ten la seguridad de que nuestro equipo de expertos está
+            listo para brindarte la información que necesitas.</p>
+      </div>
+      <div class="banner-img">
+         <img src="../images/contacto.jpg" alt="Equipo de soporte">
+      </div>
+   </div>
 
-<div class="loader">
-   <img src="images/loader.gif" alt="">
-</div>
+   <section class="contact">
+      <div class="row">
+         <div class="image">
+            <img src="../images/pexels-olly-789822.jpg" alt="Ilustración Contacto">
+         </div>
+         <form action="" method="post">
+            <h3>¡Cuéntanos en qué te podemos ayudar!</h3>
+            <div class="input-group">
+               <label for="name"><i class="fas fa-user"></i> Nombre</label>
+               <input type="text" id="name" name="name" required placeholder="Ingresa tu nombre" maxlength="50"
+                  class="box">
+            </div>
+            <div class="input-group">
+               <label for="number"><i class="fas fa-phone"></i> Número</label>
+               <input type="number" id="number" name="number" required placeholder="Ingresa tu número" max="9999999999"
+                  min="0" class="box" onkeypress="if(this.value.length == 10) return false;">
+            </div>
+            <div class="input-group">
+               <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
+               <input type="email" id="email" name="email" required placeholder="Ingresa tu correo electrónico"
+                  maxlength="50" class="box">
+            </div>
+            <div class="input-group">
+               <label for="msg"><i class="fas fa-comment-dots"></i> Mensaje</label>
+               <textarea id="msg" name="msg" placeholder="Escribe tu mensaje" required class="box" cols="30" rows="5"
+                  maxlength="500"></textarea>
+            </div>
+            <input type="submit" value="Enviar mensaje" class="btn" name="send">
+         </form>
+      </div>
+   </section>
 
-<script src="js/script.js"></script>
-<script src="../js/include-fragments.js"></script>
+   <footer class="footer">
+      <div id="footer"></div>
+   </footer>
 
-
+   <script src="../js/script.js"></script>
+   <script src="../js/include-fragments.js"></script>
 </body>
-</html>
 
+</html>

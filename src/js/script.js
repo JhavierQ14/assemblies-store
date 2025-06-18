@@ -23,7 +23,6 @@ function initializeHeader() {
    }
 }
 
-// Inicializar cuando el header esté listo
 document.addEventListener('headerLoaded', initializeHeader);
 document.addEventListener('DOMContentLoaded', initializeHeader);
 
@@ -33,7 +32,10 @@ window.onscroll = () => {
 }
 
 function loader(){
-   document.querySelector('.loader').style.display = 'none';
+   const loaderElement = document.querySelector('.loader');
+   if (loaderElement) {
+      loaderElement.style.display = 'none';
+   }
 }
 
 function fadeOut(){
@@ -42,13 +44,16 @@ function fadeOut(){
 
 window.onload = fadeOut;
 
-// SISTEMA DE CARRITO UNIFICADO
 function actualizarContadorCarrito() {
    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
    let totalItems = 0;
    cart.forEach(product => {
       totalItems += product.qty || 1;
    });
+   
+   // CONSOLE LOG AGREGADO
+   console.log('📊 ACTUALIZAR CONTADOR - Productos en localStorage:', cart);
+   console.log('📊 ACTUALIZAR CONTADOR - Total items calculado:', totalItems);
    
    const cartIcon = document.querySelector('.fa-shopping-cart');
    if (cartIcon) {
@@ -59,6 +64,10 @@ function actualizarContadorCarrito() {
       }
       span.textContent = totalItems > 0 ? `(${totalItems})` : '';
       span.style.display = totalItems > 0 ? '' : 'none';
+      
+      console.log('📊 ACTUALIZAR CONTADOR - Texto del span:', span.textContent);
+   } else {
+      console.log('❌ ACTUALIZAR CONTADOR - No se encontró el ícono del carrito');
    }
 }
 
@@ -74,6 +83,11 @@ function agregarAlCarrito(name, img, price, qty) {
    }
    
    localStorage.setItem('cartItems', JSON.stringify(cart));
+   
+   // CONSOLE LOG AGREGADO
+   console.log('🛒 AGREGAR - Productos en localStorage:', cart);
+   console.log('🛒 AGREGAR - Total items:', cart.reduce((total, item) => total + item.qty, 0));
+   
    actualizarContadorCarrito();
    mostrarAlertaCarrito('Producto agregado al carrito');
 }
@@ -98,18 +112,15 @@ function initializeCartEvents() {
    });
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
    initializeCartEvents();
    actualizarContadorCarrito();
 });
 
-// Actualizar contador cuando se cargue el header
 document.addEventListener('headerLoaded', function() {
    setTimeout(actualizarContadorCarrito, 100);
 });
 
-// Hacer funciones globales
 window.actualizarContadorCarrito = actualizarContadorCarrito;
 window.agregarAlCarrito = agregarAlCarrito;
 
