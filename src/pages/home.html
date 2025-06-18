@@ -16,40 +16,7 @@
 <body>
    
 <header class="header">
-
-   <section class="flex">
-
-      <a href="home.html" class="logo">Assemblies Store</a>
-
-      <nav class="navbar">
-         <a href="home.html">Inicio</a>
-         <a href="about.html">Acerca de nosotros</a>
-         <a href="menu.html">Tienda</a>
-         <a href="orders.html">Compras</a>
-         <a href="contact.html">Ofertas</a>
-      </nav>
-
-      <div class="icons">
-         <a href="search.html"><i class="fas fa-search"></i></a>
-         <a href="cart.html"><i class="fas fa-shopping-cart"></i><span>(3)</span></a>
-         <div id="user-btn" class="fas fa-user"></div>
-         <div id="menu-btn" class="fas fa-bars"></div>
-         <a href="#" id="theme-toggle" title="Cambiar modo">
-            <i class="fas fa-moon"></i>
-         </a>
-      </div>
-
-      <div class="profile">
-         <p class="name">shaikh anas</p>
-         <div class="flex">
-            <a href="profile.html" class="btn">profile</a>
-            <a href="#" class="delete-btn">logout</a>
-         </div>
-         <p class="account"><a href="login.html">login</a> or <a href="register.html">register</a></p>
-      </div>
-
-   </section>
-
+   <div id="header"></div>
 </header>
 
 <section class="home">
@@ -258,11 +225,11 @@
 </div>
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+<script src="../js/include-fragments.js"></script>
 <script src="../js/script.js"></script>
+<script src="../js/viewall.js"></script>
 
 <script>
-
 var swiper = new Swiper(".home-slider", {
    loop:true,
    grabCursor:true,
@@ -272,10 +239,7 @@ var swiper = new Swiper(".home-slider", {
       clickable:true,
    },
 });
-
 </script>
-
-<script src="../js/viewall.js"> </script>
 
 </body>
 </html>

@@ -1,86 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>my orders</title>
 
+
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
+
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/pages/orders.css">
+   <link rel="stylesheet" href="../css/pages/order-modal.css">
+
 
 </head>
+
 <body>
-   
-<header class="header"><div id="header"></div></header>
 
-<div class="heading">
-   <h3>Tus compras</h3>
-   <p><a href="home.html">Inicio </a> <span> / Compras</span></p>
-</div>
+   <header class="header">
+      <div id="header"></div>
+   </header>
 
-<section class="orders">
-   <h1 class="title">Órdenes realizadas</h1>
-   <div class="box-container">
-      <div class="box">
-         <p> Fecha de compra : <span>05-29-2025</span> </p>
-         <p> Nombre : <span>Juan Pérez</span> </p>
-         <p> Número : <span>50344567890</span> </p>
-         <p> Email : <span>juan.perez@assemblies.com</span> </p>
-         <p> Dirección : <span>Colonia Escalón, San Salvador, El Salvador</span> </p>
-         <p> Productos : <span>Memoria RAM DDR5 (1) - Procesador i7-13700K (1) - SSD 980 PRO (2)</span> </p>
-         <p> Precio total : <span>$690/-</span> </p>
-         <p> Método de pago : <span>Tarjeta de crédito</span> </p>
-         <p> Estado de pago : <span>Pendiente</span> </p>
-      </div>
-      <div class="box">
-         <p> Fecha de compra : <span>05-20-2025</span> </p>
-         <p> Nombre : <span>Juan Pérez</span> </p>
-         <p> Número : <span>50344567890</span> </p>
-         <p> Email : <span>juan.perez@assemblies.com</span> </p>
-         <p> Dirección : <span>Colonia Escalón, San Salvador, El Salvador</span> </p>
-         <p> Productos : <span>Tarjeta Gráfica RTX 4070 Ti (1) - Fuente de Poder 750W (1)</span> </p>
-         <p> Precio total : <span>$995/-</span> </p>
-         <p> Método de pago : <span>Pago contra entrega</span> </p>
-         <p> Estado de pago : <span>Pagado</span> </p>
-      </div>
+
+   <div class="heading">
+      <h3>Tus compras</h3>
+      <p><a href="home.html">Inicio </a> <span> / Compras</span></p>
    </div>
-</section>
 
 
+   <section class="orders">
+      <h1 class="title">Historial de Órdenes</h1>
+      <div class="orders-timeline">
+         <div class="orders-group">
+            <button class="orders-group-header" type="button" aria-expanded="true">
+               <span class="month-label"><i class="fas fa-calendar-alt"></i> Mayo 2025</span>
+               <span class="orders-group-toggle"><i class="fas fa-chevron-up"></i></span>
+            </button>
+            <div class="orders-group-content">
+               <div class="order-card order-pending">
+                  <div class="order-header">
+                     <div class="order-status pending"><i class="fas fa-clock"></i> Pendiente</div>
+                     <div class="order-date">29 Mayo 2025</div>
+                     <div class="order-total">$690</div>
+                  </div>
+                  <div class="order-body">
+                     <div class="order-products">
+                        <span class="order-product">Memoria RAM DDR5 <span class="qty">x1</span></span>
+                        <span class="order-product">Procesador i7-13700K <span class="qty">x1</span></span>
+                        <span class="order-product">SSD 980 PRO <span class="qty">x2</span></span>
+                     </div>
+                     <div class="order-info">
+                        <span><i class="fas fa-user"></i> Juan Pérez</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Colonia Escalón, San Salvador</span>
+                        <span><i class="fas fa-credit-card"></i> Tarjeta de crédito</span>
+                     </div>
+                  </div>
+                  <div class="order-footer">
+                     <span class="order-id">#ORD-20250529-01</span>
+                     <span class="order-contact"><i class="fas fa-envelope"></i> juan.perez@assemblies.com</span>
+                     <span class="order-contact"><i class="fas fa-phone"></i> 50344567890</span>
+                  </div>
+                  <div class="order-actions">
+                     <button class="order-view-btn" title="Ver detalles"><i class="fas fa-eye"></i> Ver
+                        detalles</button>
+                  </div>
+               </div>
+               <div class="order-card order-paid">
+                  <div class="order-header">
+                     <div class="order-status paid"><i class="fas fa-check-circle"></i> Pagado</div>
+                     <div class="order-date">20 Mayo 2025</div>
+                     <div class="order-total">$995</div>
+                  </div>
+                  <div class="order-body">
+                     <div class="order-products">
+                        <span class="order-product">Tarjeta Gráfica RTX 4070 Ti <span class="qty">x1</span></span>
+                        <span class="order-product">Fuente de Poder 750W <span class="qty">x1</span></span>
+                     </div>
+                     <div class="order-info">
+                        <span><i class="fas fa-user"></i> Juan Pérez</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Colonia Escalón, San Salvador</span>
+                        <span><i class="fas fa-money-bill"></i> Pago contra entrega</span>
+                     </div>
+                  </div>
+                  <div class="order-footer">
+                     <span class="order-id">#ORD-20250520-01</span>
+                     <span class="order-contact"><i class="fas fa-envelope"></i> juan.perez@assemblies.com</span>
+                     <span class="order-contact"><i class="fas fa-phone"></i> 50344567890</span>
+                  </div>
+                  <div class="order-actions">
+                     <button class="order-view-btn" title="Ver detalles"><i class="fas fa-eye"></i> Ver
+                        detalles</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <script>
+      // Acordeón para grupos de órdenes por mes
+      document.addEventListener('DOMContentLoaded', function () {
+         document.querySelectorAll('.orders-group-header').forEach(btn => {
+            btn.addEventListener('click', function () {
+               const expanded = btn.getAttribute('aria-expanded') === 'true';
+               btn.setAttribute('aria-expanded', !expanded);
+               btn.querySelector('.orders-group-toggle i').className = expanded ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+               const content = btn.nextElementSibling;
+               if (expanded) {
+                  content.style.maxHeight = '0';
+                  content.style.overflow = 'hidden';
+                  content.style.padding = '0';
+               } else {
+                  content.style.maxHeight = content.scrollHeight + 'px';
+                  content.style.overflow = 'visible';
+                  content.style.padding = '';
+               }
+            });
+            // Inicial: expandido
+            const content = btn.nextElementSibling;
+            content.style.maxHeight = content.scrollHeight + 'px';
+         });
+      });
+   </script>
+   </section>
 
 
+   <footer class="footer">
+      <div id="footer"></div>
+   </footer>
 
 
+   <script src="js/script.js"></script>
+   <script src="../js/include-fragments.js"></script>
+   <script src="../js/order.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<footer class="footer"><div id="footer"></div></footer>
-
-<div class="loader">
-   <img src="images/loader.gif" alt="">
-</div>
-
-<script src="js/script.js"></script>
-<script src="../js/include-fragments.js"></script>
 
 </body>
+
 </html>

@@ -1,0 +1,108 @@
+/* Modal para detalles de orden */
+.order-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 34, 40, 0.55);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.order-modal {
+  background: var(--white);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(30,34,40,0.18);
+  max-width: 420px;
+  width: 95vw;
+  padding: 2.5rem 2rem 2rem 2rem;
+  position: relative;
+  animation: modalIn .25s cubic-bezier(.4,1.6,.6,1) both;
+}
+@keyframes modalIn {
+  from { transform: translateY(40px) scale(.97); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.order-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--black);
+  cursor: pointer;
+  transition: color .2s;
+}
+.order-modal-close:hover {
+  color: var(--yellow);
+}
+.order-modal-status {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: .7rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.order-modal-status.paid { color: #1a7f37; }
+.order-modal-status.pending { color: #bfa100; }
+.order-modal-status.shipped { color: #0077b6; }
+.order-modal-status.delivered { color: #0a9396; }
+.order-modal-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: .7rem;
+  color: var(--black);
+}
+.order-modal-products {
+  margin-bottom: 1.2rem;
+}
+.order-modal-product {
+  font-size: 1.3rem;
+  color: var(--black);
+  background: #f5f7fa;
+  border-radius: .5rem;
+  padding: .3rem .8rem;
+  margin-bottom: .3rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.order-modal-product .qty {
+  color: var(--yellow);
+  font-weight: 600;
+}
+.order-modal-info {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  margin-bottom: 1.2rem;
+}
+.order-modal-footer {
+  border-top: 1px solid #e0e7ef;
+  padding-top: .7rem;
+  margin-top: .5rem;
+  font-size: 1.1rem;
+  color: var(--light-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.5rem;
+}
+.order-modal-id {
+  font-weight: 600;
+  color: var(--black);
+}
+.order-modal-contact {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+@media (max-width: 600px) {
+  .order-modal {
+    padding: 1.2rem .5rem 1.2rem .5rem;
+    max-width: 98vw;
+  }
+}
+
+
+

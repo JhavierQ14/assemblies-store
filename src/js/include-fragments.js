@@ -10,14 +10,28 @@ function includeHTML(selector, url) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Header
-  const headerEl = document.getElementById('header');
-  if (headerEl) {
-    includeHTML('#header', 'header.html');
-  }
-  // Footer
-  const footerEl = document.getElementById('footer');
-  if (footerEl) {
-    includeHTML('#footer', 'footer.html');
-  }
+   // Cargar header
+   const headerDiv = document.getElementById('header');
+   if (headerDiv) {
+      fetch('header.html')
+         .then(response => response.text())
+         .then(data => {
+            headerDiv.innerHTML = data;
+            // Disparar evento personalizado
+            document.dispatchEvent(new CustomEvent('headerLoaded'));
+         })
+         .catch(error => console.error('Error loading header:', error));
+   }
+
+   // Cargar footer
+   const footerDiv = document.getElementById('footer');
+   if (footerDiv) {
+      fetch('footer.html')
+         .then(response => response.text())
+         .then(data => {
+            footerDiv.innerHTML = data;
+            document.dispatchEvent(new CustomEvent('footerLoaded'));
+         })
+         .catch(error => console.error('Error loading footer:', error));
+   }
 });

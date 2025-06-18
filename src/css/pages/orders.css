@@ -1,5 +1,169 @@
-/* Estilos específicos para orders.html */
-
-.heading, .orders {
-  /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
+/* Agrupación y acordeón de meses */
+.orders-group {
+  margin-bottom: 2.5rem;
+  border-radius: 1.2rem;
+  background: #f8fafc;
+  box-shadow: 0 1px 8px rgba(80,100,120,0.06);
+  overflow: hidden;
 }
+.orders-group-header {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--black);
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background .2s;
+  border-bottom: 1px solid #e0e7ef;
+}
+.orders-group-header:hover {
+  background: #f5f7fa;
+}
+.month-label {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.orders-group-toggle {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.orders-group-content {
+  transition: max-height .35s cubic-bezier(.4,1.6,.6,1);
+  overflow: hidden;
+}
+/* Estilos modernos para historial de órdenes */
+.orders-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 0 auto;
+  max-width: 700px;
+}
+/* Barra lateral por estado */
+.order-card {
+  background: var(--white);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(80,100,120,0.10);
+  padding: 2.2rem 2rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-left: 7px solid var(--yellow);
+  position: relative;
+  transition: box-shadow .2s, border-color .2s;
+}
+.order-card.order-paid {
+  border-left: 7px solid #1a7f37;
+}
+.order-card.order-pending {
+  border-left: 7px solid var(--yellow);
+}
+.order-card:hover {
+  box-shadow: 0 4px 32px rgba(80,100,120,0.18);
+}
+.order-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.order-status {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: .4rem 1.2rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.order-status.paid {
+  background: #e6f9e6;
+  color: #1a7f37;
+  border: 1.5px solid #1a7f37;
+}
+.order-status.pending {
+  background: #fffbe6;
+  color: #bfa100;
+  border: 1.5px solid #ffd700;
+}
+.order-date {
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.order-total {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+.order-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.5rem;
+  justify-content: space-between;
+}
+.order-products {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  min-width: 220px;
+}
+.order-product {
+  font-size: 1.4rem;
+  color: var(--black);
+  background: #f5f7fa;
+  border-radius: .5rem;
+  padding: .4rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.order-product .qty {
+  color: var(--yellow);
+  font-weight: 600;
+}
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  font-size: 1.3rem;
+  color: var(--light-color);
+}
+.order-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  color: var(--light-color);
+  border-top: 1px solid #e0e7ef;
+  padding-top: .7rem;
+  margin-top: .5rem;
+}
+.order-id {
+  font-weight: 600;
+  color: var(--black);
+}
+.order-contact {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+@media (max-width: 700px) {
+  .orders-timeline {
+    max-width: 98vw;
+    padding: 0 1rem;
+  }
+  .order-card {
+    padding: 1.2rem .5rem 1.2rem .5rem;
+  }
+}
+
+
+

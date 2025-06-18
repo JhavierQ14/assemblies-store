@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tienda</title>
+
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+   <!-- custom css file link -->
+   <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/pages/store.css">
+   <link rel="stylesheet" href="../css/pages/product-modal.css">
+
+
+</head>
+
+
+<body>
+
+
+   <header class="header">
+      <div id="header"></div>
+   </header>
+
+
+   <div class="store-main">
+     <aside class="store-sidebar">
+       <form id="store-filters">
+         <h3>Filtrar productos</h3>
+         <div class="filter-group">
+           <label for="category">Categoría:</label>
+           <select name="category" id="category">
+             <option value="all">Todas</option>
+             <option value="Memoria RAM DDR5">Memoria RAM DDR5</option>
+             <option value="Procesador">Procesador</option>
+             <option value="Tarjeta Gráfica">Tarjeta Gráfica</option>
+             <option value="SSD">SSD</option>
+             <option value="Fuente de Poder">Fuente de Poder</option>
+             <option value="Placa Madre">Placa Madre</option>
+           </select>
+         </div>
+         <div class="filter-group">
+           <label for="minPrice">Precio mínimo:</label>
+           <input type="number" name="minPrice" id="minPrice" min="0" placeholder="$0">
+         </div>
+         <div class="filter-group">
+           <label for="maxPrice">Precio máximo:</label>
+           <input type="number" name="maxPrice" id="maxPrice" min="0" placeholder="$1000">
+         </div>
+         <div class="filter-group">
+           <label for="orderBy">Ordenar por:</label>
+           <select name="orderBy" id="orderBy">
+             <option value="default">Por defecto</option>
+             <option value="price-asc">Precio: menor a mayor</option>
+             <option value="price-desc">Precio: mayor a menor</option>
+             <option value="alpha-asc">Nombre: A-Z</option>
+             <option value="alpha-desc">Nombre: Z-A</option>
+           </select>
+         </div>
+         <button id="clear-filters" class="btn" type="button">Limpiar filtros</button>
+       </form>
+     </aside>
+     <nav id="store-pagination" class="store-pagination"></nav>
+     <main class="store-content">
+       <div class="heading">
+         <h3>Nuestros productos</h3>
+         <p><a href="home.html">Inicio </a> <span> / Tienda</span></p>
+       </div>
+       <section class="products">
+         <h1 class="title">Últimos Ingresos</h1>
+         <div class="store-page-size" style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+           <label for="page-size" style="font-size:1.5rem;color:var(--black);">Mostrar:</label>
+           <select id="page-size" style="padding:.5rem 1rem;font-size:1.5rem;border-radius:.5rem;">
+             <option value="10" selected>10</option>
+             <option value="20">20</option>
+             <option value="50">50</option>
+             <option value="all">Todos</option>
+           </select>
+           <span style="font-size:1.5rem;color:var(--black);">productos por página</span>
+         </div>
+         <div class="box-container">
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/pizza-1.png" alt="">
+            <a href="category.html" class="cat">Memoria RAM DDR5</a>
+            <div class="name">Corsair Vengeance 16GB 6000MHz</div>
+            <div class="flex">
+               <div class="price"><span>$</span>120<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/dish-1.png" alt="">
+            <a href="category.html" class="cat">Procesador</a>
+            <div class="name">Intel Core i7-13700K</div>
+            <div class="flex">
+               <div class="price"><span>$</span>350<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/burger-1.png" alt="">
+            <a href="category.html" class="cat">Tarjeta Gráfica</a>
+            <div class="name">NVIDIA RTX 4070 Ti</div>
+            <div class="flex">
+               <div class="price"><span>$</span>900<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/dessert-1.png" alt="">
+            <a href="category.html" class="cat">SSD</a>
+            <div class="name">Samsung 980 PRO 1TB NVMe</div>
+            <div class="flex">
+               <div class="price"><span>$</span>110<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/drink-1.png" alt="">
+            <a href="category.html" class="cat">Fuente de Poder</a>
+            <div class="name">EVGA 750W Gold Modular</div>
+            <div class="flex">
+               <div class="price"><span>$</span>95<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         <form accept="" method="post" class="box">
+            <a href="quick_view.html" class="fas fa-eye"></a>
+            <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
+            <img src="uploaded_img/dish-2.png" alt="">
+            <a href="category.html" class="cat">Placa Madre</a>
+            <div class="name">ASUS ROG STRIX Z790-E</div>
+            <div class="flex">
+               <div class="price"><span>$</span>420<span>/-</span></div>
+               <input type="number" name="qty" class="qty" min="1" max="99" value="1"
+                  onkeypress="if(this.value.length == 2) return false;">
+            </div>
+         </form>
+         </div>
+         <!-- paginación movida arriba -->
+       </section>
+     </main>
+   </div>
+
+
+
+
+
+
+   <footer class="footer">
+      <div id="footer"></div>
+   </footer>
+
+
+   <div class="loader">
+      <img src="../images/loader.gif" alt="">
+   </div>
+
+
+   <script src="js/script.js"></script>
+   <script src="../js/include-fragments.js"></script>
+   <script src="../js/pages/store/store.js"></script>
+   <script src="../js/pages/store/pagination.js"></script>
+   <script src="../js/pages/store/product-modal.js"></script>
+   <script src="../js/pages/store/store.new.js"></script>
+
+
+</body>
+
+
+</html>
+
