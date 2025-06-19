@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios S5 - Terminal JS</title>
+  <style>
+    body {
+      background: #181c20;
+      color: #e0e0e0;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .terminal {
+      background: #23272e;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px 0 #0008;
+      width: 98vw;
+      max-width: 520px;
+      min-height: 420px;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .terminal-title {
+      color: #fed330;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .output {
+      white-space: pre-wrap;
+      min-height: 120px;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .input-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .prompt {
+      color: #fed330;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .input {
+      background: #181c20;
+      color: #e0e0e0;
+      border: none;
+      outline: none;
+      font-size: 1.1rem;
+      font-family: inherit;
+      flex: 1;
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+    }
+    .input:disabled {
+      background: #23272e;
+      color: #888;
+    }
+    .btn {
+      background: #fed330;
+      color: #23272e;
+      border: none;
+      border-radius: 4px;
+      padding: 0.3rem 1.1rem;
+      font-size: 1.1rem;
+      font-family: inherit;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 0.5rem;
+      transition: background 0.18s;
+    }
+    .btn:hover {
+      background: #ffe066;
+    }
+    @media (max-width: 600px) {
+      .terminal { max-width: 99vw; padding: 1rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="terminal">
+  <div class="terminal-title">Ejercicios S5</div>
+  <div class="output" id="output"></div>
+  <form id="form" autocomplete="off" class="input-line">
+    <span class="prompt">&gt;</span>
+    <input type="text" id="input" class="input" autofocus />
+    <button class="btn" type="submit">Enviar</button>
+  </form>
+</div>
+<script>
+const output = document.getElementById('output');
+const input = document.getElementById('input');
+const form = document.getElementById('form');
+
+let estado = 'menu';
+let sub = null;
+let datos = {};
+let mostrarVolver = false;
+
+const menu = `Elige un ejercicio (1-5):\n1. Número par o impar\n2. Días del mes\n3. Examen aprobado\n4. Grupo de letras\n5. Piedra, papel o tijera con rondas\n0. Salir`;
+
+function print(text) {
+  output.textContent += text + '\n';
+  output.scrollTop = output.scrollHeight;
+}
+function clear() {
+  output.textContent = '';
+}
+function reset() {
+  estado = 'menu';
+  sub = null;
+  datos = {};
+  mostrarVolver = false;
+  clear();
+  print(menu);
+}
+
+function mostrarBotonVolver() {
+  if (!document.getElementById('volverMenu')) {
+    const btn = document.createElement('button');
+    btn.textContent = 'Volver al menú';
+    btn.className = 'btn';
+    btn.id = 'volverMenu';
+    btn.style.marginTop = '1.2rem';
+    btn.onclick = () => {
+      btn.remove();
+      input.disabled = false;
+      input.value = '';
+      input.focus();
+      reset();
+    };
+    output.parentNode.appendChild(btn);
+    input.disabled = true;
+  }
+}
+
+reset();
+
+form.onsubmit = e => {
+  e.preventDefault();
+  if (mostrarVolver) return;
+  const val = input.value.trim();
+  if (!val && estado !== 'juego5') return;
+  print('> ' + val);
+  input.value = '';
+  if (estado === 'menu') {
+    if (val === '0') {
+      print('¡Hasta luego!');
+      input.disabled = true;
+      return;
+    }
+    if (val === '1') {
+      estado = 'ej1';
+      print('Ingrese un número:');
+      return;
+    }
+    if (val === '2') {
+      estado = 'ej2';
+      print('Ingrese un mes (1-12):');
+      return;
+    }
+    if (val === '3') {
+      estado = 'ej3';
+      print('Ingrese la nota del examen:');
+      return;
+    }
+    if (val === '4') {
+      estado = 'ej4';
+      print('Ingrese una letra:');
+      return;
+    }
+    if (val === '5') {
+      estado = 'ej5_rondas';
+      print('¿Cuántas rondas quieres jugar?');
+      return;
+    }
+    print('Opción inválida. Intenta de nuevo.');
+    print(menu);
+    return;
+  }
+  if (estado === 'ej1') {
+    let num = Number(val);
+    if (!isNaN(num)) {
+      print(num % 2 === 0 ? 'El número es par' : 'El número es impar');
+    } else {
+      print('Entrada inválida.');
+    }
+    mostrarVolver = true;
+    mostrarBotonVolver();
+    return;
+  }
+  if (estado === 'ej2') {
+    let mes = Number(val);
+    let dias = 0;
+    if ([1,3,5,7,8,10,12].includes(mes)) dias = 31;
+    else if ([4,6,9,11].includes(mes)) dias = 30;
+    else if (mes === 2) dias = 28;
+    if (dias) print('El mes tiene ' + dias + ' días');
+    else print('Mes inválido.');
+    mostrarVolver = true;
+    mostrarBotonVolver();
+    return;
+  }
+  if (estado === 'ej3') {
+    let nota = Number(val);
+    if (!isNaN(nota)) {
+      if (nota > 7) print('Examen aprobado');
+      else if (nota > 4) print('Debe recuperar');
+      else print('Aplazo');
+    } else {
+      print('Entrada inválida.');
+    }
+    mostrarVolver = true;
+    mostrarBotonVolver();
+    return;
+  }
+  if (estado === 'ej4') {
+    let letra = val.toLowerCase();
+    let grupo = '';
+    if ('aeiou'.includes(letra)) grupo = 'A';
+    else if ('bcdfg'.includes(letra)) grupo = 'B';
+    else if ('hjklm'.includes(letra)) grupo = 'C';
+    else if ('npqr'.includes(letra)) grupo = 'D';
+    else if ('stvwyxz'.includes(letra)) grupo = 'E';
+    if (grupo) print('La letra pertenece al grupo ' + grupo);
+    else print('Letra inválida.');
+    mostrarVolver = true;
+    mostrarBotonVolver();
+    return;
+  }
+  if (estado === 'ej5_rondas') {
+    let rondas = Number(val);
+    if (isNaN(rondas) || rondas < 1) {
+      print('Cantidad inválida.');
+      reset();
+      return;
+    }
+    datos.rondas = rondas;
+    datos.i = 1;
+    datos.puntajeU = 0;
+    datos.puntajeC = 0;
+    estado = 'juego5';
+    print('Ronda 1 de ' + rondas + '\nElige: Piedra, Papel o Tijera');
+    return;
+  }
+  if (estado === 'juego5') {
+    let jugadaU = val.toLowerCase();
+    let opciones = ['piedra','papel','tijera'];
+    let jugadaC = opciones[Math.floor(Math.random()*3)];
+    let resultado = '';
+    if (jugadaU === jugadaC) resultado = 'Empate';
+    else if (
+      (jugadaU === 'piedra' && jugadaC === 'tijera') ||
+      (jugadaU === 'papel' && jugadaC === 'piedra') ||
+      (jugadaU === 'tijera' && jugadaC === 'papel')
+    ) {
+      resultado = 'Has ganado esta ronda';
+      datos.puntajeU++;
+    } else if (opciones.includes(jugadaU)) {
+      resultado = 'Computadora ha ganado esta ronda';
+      datos.puntajeC++;
+    } else {
+      print('Jugada inválida. Usa Piedra, Papel o Tijera.');
+      print('Ronda ' + datos.i + ' de ' + datos.rondas + '\nElige: Piedra, Papel o Tijera');
+      return;
+    }
+    print(
+      'Ronda: ' + datos.i + ' de ' + datos.rondas +
+      '\nTú: ' + jugadaU +
+      '\nComputadora: ' + jugadaC +
+      '\n' + resultado +
+      '\nPuntaje: ' + datos.puntajeU + ' (Tú) - ' + datos.puntajeC + ' (Computadora)' +
+      '\nRondas restantes: ' + (datos.rondas - datos.i)
+    );
+    datos.i++;
+    if (datos.i > datos.rondas) {
+      let final = datos.puntajeU > datos.puntajeC ? '¡Ganaste el juego!' : datos.puntajeU < datos.puntajeC ? 'La computadora ganó el juego' : 'Empate final';
+      print(final);
+      reset();
+      return;
+    }
+    print('Ronda ' + datos.i + ' de ' + datos.rondas + '\nElige: Piedra, Papel o Tijera');
+    return;
+  }
+};
+</script>
+</body>
+</html>
