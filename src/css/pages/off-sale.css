@@ -289,5 +289,79 @@
 }
 
 
+/* Modo oscuro */
+body.dark-mode .brand-offer-panel {
+  background: linear-gradient(135deg, #232b39 60%, #181f2a 100%) !important;
+  color: #ffe066 !important;
+}
+body.dark-mode .brand-title {
+  color: #ffe066 !important;
+}
+body.dark-mode .offer-card {
+  background: #232b39 !important;
+  color: #e0e7ef !important;
+  box-shadow: 0 2px 8px #181f2a;
+}
+body.dark-mode .offer-img {
+  background: #181f2a !important;
+}
+body.dark-mode .offer-info h3,
+body.dark-mode .offer-info p,
+body.dark-mode .offer-desc,
+body.dark-mode .offer-product {
+  color: #ffe066 !important;
+}
+body.dark-mode .offer-prices {
+  color: #ffe066 !important;
+}
+body.dark-mode .old-price {
+  color: #e0e7ef !important;
+  opacity: 0.7;
+}
+body.dark-mode .new-price {
+  color: #ffe066 !important;
+  background: #181f2a !important;
+}
+body.dark-mode .special-offer-expiry {
+  color: #4fc3f7 !important;
+  background: linear-gradient(90deg, #232b39 60%, #181f2a 100%) !important;
+}
+body.dark-mode .special-offer-expiry i,
+body.dark-mode .countdown-time {
+  color: #4fc3f7 !important;
+}
+body.dark-mode .special-offer-expiry .countdown-time {
+  color: #ffe066 !important;
+}
+body.dark-mode .special-offer-expiry .expired {
+  color: #e74c3c !important;
+}
+body.dark-mode .father-day-section {
+  background: linear-gradient(120deg, #232b39 60%, #181f2a 100%) !important;
+}
+body.dark-mode .father-day-banner {
+  background: #232b39 !important;
+}
+body.dark-mode .brand-cards-container {
+  background: transparent !important;
+}
+body.dark-mode .brand-card-only {
+  background: #232b39 !important;
+  color: #e0e7ef !important;
+}
+body.dark-mode .heading {
+  background: #232b39 !important;
+}
+body.dark-mode .heading h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p a {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p span {
+  color: #e0e7ef !important;
+}
+
+
 /* ...existing code... */
 

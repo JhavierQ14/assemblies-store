@@ -213,4 +213,43 @@
 }
 
 
+body.dark-mode .store-sidebar,
+body.dark-mode .store-page-size {
+  background: #232b39 !important;
+  color: #e0e7ef !important;
+  border-color: #232b39 !important;
+}
+body.dark-mode .store-sidebar h3,
+body.dark-mode .filter-group label,
+body.dark-mode .store-page-size label,
+body.dark-mode .store-page-size span {
+  color: #e0e7ef !important;
+}
+body.dark-mode .filter-group input,
+body.dark-mode .filter-group select {
+  background: #181f2a !important;
+  color: #e0e7ef !important;
+  border: 1px solid #232b39 !important;
+}
+body.dark-mode .heading h3,
+body.dark-mode .heading p,
+body.dark-mode .heading a,
+body.dark-mode .heading span {
+  color: #e0e7ef !important;
+}
+body.dark-mode .heading {
+  background: #232b39 !important;
+}
+body.dark-mode .heading h3 {
+  color: #ffe066 !important;
+  text-shadow: 0 2px 8px #181f2a;
+}
+body.dark-mode .heading p a {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p span {
+  color: #e0e7ef !important;
+}
+
+
 

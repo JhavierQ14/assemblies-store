@@ -892,76 +892,72 @@ body{
 
 /* Modo oscuro */
 body.dark-mode {
-   background: #181c23;
-   color: #e0e7ef;
+  --yellow: #ffe066;
+  --red: #ff7675;
+  --white: #232b39;
+  --black: #fff;
+  --light-color: #e0e7ef;
+  --border: .2rem solid #232b39;
+  --light-bg: #232b39;
+  background: #181f2a !important;
+  color: #e0e7ef !important;
 }
-body.dark-mode section,
-body.dark-mode .heading,
-body.dark-mode .form-container form,
-body.dark-mode .products .box-container .box,
-body.dark-mode .category .box-container .box,
-body.dark-mode .footer .box,
-body.dark-mode .user-details .user,
-body.dark-mode .orders .box-container .box,
-body.dark-mode .reviews .slide,
-body.dark-mode .steps .box-container .box {
-   background: #232a34 !important;
-   color: #e0e7ef !important;
-   border-color: #232a34 !important;
+body.dark-mode, body.dark-mode * {
+  color: #e0e7ef !important;
+  border-color: #232b39 !important;
 }
-body.dark-mode .header,
+body.dark-mode .logo-section,
+body.dark-mode .login-box,
+body.dark-mode .box,
 body.dark-mode .footer,
-body.dark-mode .footer .credit {
-   background: #181c23 !important;
-   color: #e0e7ef !important;
-}
-body.dark-mode .footer .box h3,
-body.dark-mode .title,
-body.dark-mode .heading h3 {
-   color: #ffd700 !important;
+body.dark-mode .header,
+body.dark-mode .profile,
+body.dark-mode .category,
+body.dark-mode .products,
+body.dark-mode .form-container,
+body.dark-mode .navbar,
+body.dark-mode .profile-info-list,
+body.dark-mode .profile-actions,
+body.dark-mode .profile-stats {
+  background: #232b39 !important;
+  color: #e0e7ef !important;
 }
 body.dark-mode .btn,
-body.dark-mode .delete-btn,
-body.dark-mode .checkout form .order-btn {
-   background: #232a34 !important;
-   color: #ffd700 !important;
+body.dark-mode .delete-btn {
+  background: #23395d !important;
+  color: #ffe066 !important;
 }
 body.dark-mode .btn:hover,
-body.dark-mode .delete-btn:hover,
-body.dark-mode .checkout form .order-btn:hover {
-   background: #ffd700 !important;
-   color: #232a34 !important;
+body.dark-mode .delete-btn:hover {
+  background: #ffe066 !important;
+  color: #23395d !important;
 }
-body.dark-mode input,
+body.dark-mode .input-group input,
+body.dark-mode input.box,
 body.dark-mode textarea,
 body.dark-mode select {
-   background: #232a34 !important;
-   color: #ffd700 !important;
-   border-color: #232a34 !important;
+  background: #181f2a !important;
+  color: #e0e7ef !important;
+  border: 1px solid #232b39 !important;
 }
-body.dark-mode .header .flex .navbar a,
-body.dark-mode .header .flex .logo {
-   color: #ffd700 !important;
+body.dark-mode .social-btn {
+  background: #181f2a !important;
+  color: #4fc3f7 !important;
+  border-color: #4fc3f7 !important;
 }
-body.dark-mode .header .flex .navbar a:hover {
-   color: #fff !important;
+body.dark-mode .social-btn:hover {
+  background: #4fc3f7 !important;
+  color: #181f2a !important;
 }
-body.dark-mode .products .box-container .box .fa-eye,
-body.dark-mode .products .box-container .box .fa-shopping-cart {
-   background: #232a34 !important;
-   color: #ffd700 !important;
-   border-color: #232a34 !important;
+body.dark-mode .fa,
+body.dark-mode .fas,
+body.dark-mode .fab {
+  color: #4fc3f7 !important;
 }
-body.dark-mode .products .box-container .box .fa-eye:hover,
-body.dark-mode .products .box-container .box .fa-shopping-cart:hover {
-   background: #ffd700 !important;
-   color: #232a34 !important;
-}
-body.dark-mode .footer .box a:hover {
-   color: #ffd700 !important;
-}
-body.dark-mode .footer .credit span {
-   color: #ffd700 !important;
+body.dark-mode .products .box-container .box .flex .qty {
+  background: #181f2a !important;
+  color: #e0e7ef !important;
+  border: 1px solid #232b39 !important;
 }
 
 @media (max-width:991px){
