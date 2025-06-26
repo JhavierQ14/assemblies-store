@@ -4,23 +4,34 @@ let navbar, profile;
 function initializeHeader() {
    navbar = document.querySelector('.header .flex .navbar');
    profile = document.querySelector('.header .flex .profile');
-   
    const menuBtn = document.querySelector('#menu-btn');
    const userBtn = document.querySelector('#user-btn');
-   
+
    if (menuBtn) {
-      menuBtn.onclick = () => {
+      menuBtn.onclick = (e) => {
+         e.stopPropagation();
          navbar?.classList.toggle('active');
          profile?.classList.remove('active');
       }
    }
-   
+
    if (userBtn) {
-      userBtn.onclick = () => {
+      userBtn.onclick = (e) => {
+         e.stopPropagation();
          profile?.classList.toggle('active');
          navbar?.classList.remove('active');
       }
    }
+
+   // Cerrar ambos al hacer click fuera
+   document.addEventListener('click', function (e) {
+      if (navbar && !navbar.contains(e.target) && e.target !== menuBtn) {
+         navbar.classList.remove('active');
+      }
+      if (profile && !profile.contains(e.target) && e.target !== userBtn) {
+         profile.classList.remove('active');
+      }
+   });
 }
 
 document.addEventListener('headerLoaded', initializeHeader);

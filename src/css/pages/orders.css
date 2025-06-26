@@ -165,5 +165,101 @@
   }
 }
 
+/* Modo oscuro para historial de órdenes */
+body.dark-mode .orders-group {
+  background: #232b39;
+  box-shadow: 0 1px 8px rgba(20,30,40,0.18);
+}
+body.dark-mode .orders-group-header {
+  color: #fff;
+  border-bottom: 1px solid #2d3950;
+  background: #1a2233;
+}
+body.dark-mode .orders-group-header:hover {
+  background: #232b39;
+}
+body.dark-mode .month-label,
+body.dark-mode .orders-group-toggle {
+  color: #ffe066;
+}
+body.dark-mode .orders-timeline {
+  background: none;
+}
+body.dark-mode .order-card {
+  background: #1a2233;
+  color: #fff;
+  border-left-color: var(--yellow);
+  box-shadow: 0 2px 16px rgba(20,30,40,0.28);
+}
+body.dark-mode .order-card.order-paid {
+  border-left-color: #1a7f37;
+}
+body.dark-mode .order-card.order-pending {
+  border-left-color: var(--yellow);
+}
+body.dark-mode .order-header {
+  color: #fff;
+}
+body.dark-mode .order-status.paid {
+  background: #1a7f37;
+  color: #fff;
+  border-color: #1a7f37;
+}
+body.dark-mode .order-status.pending {
+  background: #bfa100;
+  color: #fff;
+  border-color: #ffe066;
+}
+body.dark-mode .order-date {
+  color: #ffe066;
+}
+body.dark-mode .order-total {
+  color: #ffe066;
+}
+body.dark-mode .order-product {
+  background: #232b39;
+  color: #ffe066;
+}
+body.dark-mode .order-product .qty {
+  color: #ffe066;
+}
+body.dark-mode .order-info {
+  color: #bfc9d1;
+}
+body.dark-mode .order-footer {
+  color: #bfc9d1;
+  border-top: 1px solid #2d3950;
+}
+body.dark-mode .order-id {
+  color: #ffe066;
+}
+body.dark-mode .order-contact {
+  color: #bfc9d1;
+}
+body.dark-mode .order-actions .order-view-btn {
+  background: #232b39;
+  color: #ffe066;
+  border: 1px solid #ffe066;
+}
+body.dark-mode .order-actions .order-view-btn:hover {
+  background: #ffe066;
+  color: #232b39;
+}
+body.dark-mode .heading {
+  background: #232b39;
+}
+body.dark-mode .heading h3 {
+  color: #ffe066;
+}
+body.dark-mode .heading p a {
+  color: #ffe066;
+}
+body.dark-mode .heading p span {
+  color: #bfc9d1;
+}
+body.dark-mode .heading p a:hover {
+  color: #fff;
+}
+
 
 

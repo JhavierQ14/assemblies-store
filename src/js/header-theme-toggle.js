@@ -1,10 +1,10 @@
 // header-theme-toggle.js
 // Lógica de modo oscuro/claro para Assemblies Store
 
-function waitForThemeToggle() {
+function initThemeToggle(attempt = 0) {
   const themeToggle = document.getElementById('theme-toggle');
   if (!themeToggle) {
-    setTimeout(waitForThemeToggle, 100);
+    if (attempt < 10) setTimeout(() => initThemeToggle(attempt + 1), 100);
     return;
   }
   const themeIcon = themeToggle.querySelector('i');
@@ -13,8 +13,12 @@ function waitForThemeToggle() {
     document.body.classList.add('dark-mode');
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
+  } else {
+    document.body.classList.remove('dark-mode');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
   }
-  themeToggle.addEventListener('click', function(e) {
+  themeToggle.onclick = function(e) {
     e.preventDefault();
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
@@ -27,6 +31,8 @@ function waitForThemeToggle() {
       themeIcon.classList.add('fa-moon');
       localStorage.setItem('theme', 'light');
     }
-  });
+  };
 }
-document.addEventListener('DOMContentLoaded', waitForThemeToggle);
+
+document.addEventListener('headerLoaded', () => initThemeToggle(0));
+document.addEventListener('DOMContentLoaded', () => initThemeToggle(0));

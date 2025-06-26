@@ -61,8 +61,36 @@
 }
 /* Estilos específicos para about.html */
 
-.heading, .about, .steps, .reviews {
-  
+.heading {
+  text-align: center;
+  background: #f1f3f5;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  margin: 2rem auto 2.5rem auto;
+  max-width: 1100px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.heading h3 {
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.heading p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.heading a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.heading a:hover {
+  text-decoration: underline;
+}
+
 .about {
   background-color: #0f1115;
   color: #eaeaea;
@@ -289,7 +317,121 @@
   opacity: 1;
 }
 
+/* Modo oscuro para about.html */
+body.dark-mode .about {
+  background-color: #181f2a !important;
+  color: #f1f5f9 !important;
+}
+body.dark-mode .about-title {
+  color: #ffe066 !important;
+}
+body.dark-mode .about-text {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .about-features {
+  /* No color, hereda del fondo */
+}
+body.dark-mode .feature {
+  background-color: #232b39 !important;
+  color: #ffe066 !important;
+  box-shadow: 0 8px 20px rgba(255,224,102,0.08) !important;
+}
+body.dark-mode .feature h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .feature p {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .feature .icon {
+  color: #ffe066 !important;
+}
 
+body.dark-mode .steps {
+  background-color: #232b39 !important;
+  color: #ffe066 !important;
+}
+body.dark-mode .steps-title {
+  color: #ffe066 !important;
+}
+body.dark-mode .step-box {
+  background-color: #1a2233 !important;
+  color: #ffe066 !important;
+  box-shadow: 0 4px 12px rgba(255,224,102,0.10) !important;
+}
+body.dark-mode .step-box h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .step-box p {
+  color: #bfc9d1 !important;
+}
 
+body.dark-mode .reviews {
+  background: #181f2a !important;
+  color: #f1f5f9 !important;
+}
+body.dark-mode .reviews .title {
+  color: #ffe066 !important;
+}
+body.dark-mode .reviews .slide {
+  background: #232b39 !important;
+  color: #ffe066 !important;
+  box-shadow: 0 4px 15px rgba(20,30,40,0.18) !important;
+}
+body.dark-mode .reviews .slide h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .reviews .slide p {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .reviews .stars {
+  color: #ffe066 !important;
+}
+body.dark-mode .reviews .slide img,
+body.dark-mode .review-card img {
+  border-color: #ffe066 !important;
+}
+body.dark-mode .swiper-pagination-bullet {
+  background: #ffe066 !important;
+}
+body.dark-mode .swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
+
+body.dark-mode .heading {
+  background: #232b39 !important;
+  box-shadow: 0 2px 12px rgba(20,30,40,0.18) !important;
+}
+body.dark-mode .heading h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .heading p a {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p span {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .heading p a:hover {
+  color: #fff !important;
+}
+
+body.dark-mode .review-card {
+  background: #232b39 !important;
+  color: #ffe066 !important;
+  box-shadow: 0 4px 15px rgba(255,224,102,0.10) !important;
+}
+body.dark-mode .review-card h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .review-card p {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .review-card .stars {
+  color: #ffe066 !important;
+}
+body.dark-mode .review-card img {
+  border-color: #ffe066 !important;
 }
 

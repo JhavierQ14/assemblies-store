@@ -26,33 +26,109 @@
 
 <section class="checkout">
    <h1 class="title">Resumen de tu pedido</h1>
-  <form action="" method="post" class="checkout-container">
-
-      <!-- Columna izquierda - Productos -->
+  <form action="" method="post" class="checkout-container horizontal-layout">
+      <!-- Columna izquierda: Tabla de productos -->
       <div class="cart-items">
          <h3>Productos en tu carrito</h3>
-         <!-- Se llenan con JS -->
+         <div class="cart-table-wrapper">
+           <table class="cart-table">
+             <thead>
+               <tr>
+                 <th>Producto</th>
+                 <th>Cantidad</th>
+                 <th>Precio unitario</th>
+                 <th>Subtotal</th>
+               </tr>
+             </thead>
+             <tbody id="checkout-products-body">
+               <!-- Se llenan con JS -->
+             </tbody>
+             <!-- El tfoot se generará dinámicamente por JS -->
+           </table>
+         </div>
+         <a href="cart.html" class="btn secondary-btn">Ver carrito</a>
       </div>
-
-      <!-- Columna derecha - Información del usuario -->
+      <!-- Columna derecha: Información del usuario -->
       <div class="user-info">
          <h3>Tus datos</h3>
-         <p><i class="fas fa-user"></i> <span>Juan Pérez</span></p>
-         <p><i class="fas fa-phone"></i> <span>50344567890</span></p>
-         <p><i class="fas fa-envelope"></i> <span>juan.perez@assemblies.com</span></p>
+         <div class="user-data-row"><i class="fas fa-user"></i><span id="checkout-user-name">Usuario</span></div>
+         <div class="user-data-row"><i class="fas fa-phone"></i><span id="checkout-user-phone"></span></div>
+         <div class="user-data-row"><i class="fas fa-envelope"></i><span id="checkout-user-email"></span></div>
          <a href="update_profile.html" class="btn secondary-btn">Actualizar datos</a>
-
          <h3>Dirección de entrega</h3>
-         <p class="address"><i class="fas fa-map-marker-alt"></i> <span>Colonia Escalón, San Salvador, El Salvador</span></p>
+         <div class="user-data-row"><i class="fas fa-map-marker-alt"></i><span id="checkout-user-address"></span></div>
          <a href="update_address.html" class="btn secondary-btn">Actualizar dirección</a>
-
-         <select name="method" class="box" required>
+         <select name="method" class="box" id="payment-method" required>
             <option value="" disabled selected>Selecciona método de pago</option>
             <option value="cash on delivery">Pago contra entrega</option>
             <option value="credit card">Tarjeta de crédito</option>
+            <option value="debit card">Tarjeta de débito</option>
             <option value="paypal">PayPal</option>
          </select>
-
+         <div id="card-panel" class="card-panel" style="display:none;">
+           <h4>Datos de la tarjeta</h4>
+           <div class="card-form-row">
+             <label for="card-number">
+               <i class="fas fa-credit-card"></i> Número de tarjeta
+               <span class="info-tooltip"><i class="fas fa-info-circle"></i>
+                 <span class="tooltip-text">Ingresa los 16 dígitos de tu tarjeta sin guiones ni letras.</span>
+               </span>
+             </label>
+             <div class="card-number-input-group">
+               <input type="text" id="card-number" name="card-number" maxlength="19" pattern="[0-9 ]{13,19}" placeholder="0000 0000 0000 0000" autocomplete="cc-number">
+               <img id="visa-logo" class="card-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" style="display:inline;">
+               <img id="mastercard-logo" class="card-logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" style="display:inline;">
+             </div>
+           </div>
+           <div class="card-form-row">
+             <label for="card-name">
+               <i class="fas fa-user"></i> Nombre en la tarjeta
+               <span class="info-tooltip"><i class="fas fa-info-circle"></i>
+                 <span class="tooltip-text">Escribe el nombre tal como aparece en la tarjeta.</span>
+               </span>
+             </label>
+             <input type="text" id="card-name" name="card-name" maxlength="40" placeholder="Como aparece en la tarjeta" autocomplete="cc-name">
+           </div>
+           <div class="card-form-row">
+             <label for="card-expiry">
+               <i class="fas fa-calendar"></i> Vencimiento
+               <span class="info-tooltip"><i class="fas fa-info-circle"></i>
+                 <span class="tooltip-text">Formato MM/AA. Ejemplo: 08/27</span>
+               </span>
+             </label>
+             <input type="text" id="card-expiry" name="card-expiry" maxlength="5" pattern="[0-9]{2}/[0-9]{2}" placeholder="MM/AA" autocomplete="cc-exp">
+           </div>
+           <div class="card-form-row">
+             <label for="card-cvc">
+               <i class="fas fa-lock"></i> CVC
+               <span class="info-tooltip"><i class="fas fa-info-circle"></i>
+                 <span class="tooltip-text">Código de 3 o 4 dígitos al reverso de tu tarjeta.</span>
+               </span>
+             </label>
+             <input type="text" id="card-cvc" name="card-cvc" maxlength="4" pattern="[0-9]{3,4}" placeholder="CVC" autocomplete="cc-csc">
+           </div>
+         </div>
+         <div id="paypal-panel" class="paypal-panel" style="display:none;">
+           <h4>Pagar con PayPal</h4>
+           <div id="paypal-button-container"></div>
+           <div class="paypal-info">
+             Serás redirigido a PayPal para completar tu pago de forma segura.
+           </div>
+         </div>
+         <div id="cod-panel" class="cod-panel" style="display:none;">
+           <h4>Pago contra entrega</h4>
+           <div class="cod-info">
+             <i class="fas fa-truck"></i> Pagarás el total de tu pedido al momento de recibirlo en la dirección indicada.
+           </div>
+           <div class="cod-summary">
+             <strong>Dirección de entrega:</strong>
+             <span id="cod-address"></span>
+           </div>
+           <div class="cod-summary">
+             <strong>Contacto:</strong>
+             <span id="cod-contact"></span>
+           </div>
+         </div>
          <input type="submit" value="Realizar pedido" name="order" class="btn order-btn">
       </div>
    </form>
@@ -60,5 +136,8 @@
 
 
 <script src="../js/checkout.js"></script>
+<script src="../js/checkout-user.js"></script>
+<script src="../js/checkout-user-data.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 </body>
 </html>

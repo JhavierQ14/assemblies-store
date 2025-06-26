@@ -132,76 +132,6 @@
    text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-   .contact .row {
-      flex-direction: column;
-      min-height: unset;
-   }
-
-   .contact .image,
-   .contact form {
-      flex: 1 1 100%;
-      height: auto;
-      min-height: 220px;
-   }
-
-   .contact .image {
-      min-height: 180px;
-   }
-
-   .contact form {
-      padding: 2rem 1.5rem;
-   }
-
-   .contact form h3 {
-      font-size: 2rem;
-   }
-}
-/* ...código existente... */
-
-.contact .row .image {
-   flex: 1 1 50%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: #e9ecef;
-   padding: 2rem;
-   min-width: 200px;
-}
-
-.contact .row .image img {
-   max-width: 100%;
-   max-height: 350px;
-   width: auto;
-   height: auto;
-   object-fit: contain;
-   border-radius: 1rem;
-   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-
-.contact form .input-group {
-   margin-bottom: 1.5rem;
-   display: flex;
-   flex-direction: column;
-}
-
-.contact form label {
-   font-size: 1.1rem;
-   color: #222;
-   margin-bottom: 0.5rem;
-   font-weight: 500;
-   display: flex;
-   align-items: center;
-   gap: 0.5rem;
-}
-
-.contact form label i {
-   color: #162f49;
-   font-size: 1.2rem;
-}
-
-
 /* Banner de contacto */
 .contact-banner {
   display: flex;
@@ -256,3 +186,182 @@
     margin: 0 auto;
   }
     }
+
+body.dark-mode .heading {
+  background: #232b39 !important;
+}
+body.dark-mode .heading h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p a {
+  color: #ffe066 !important;
+}
+body.dark-mode .heading p span {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .heading p a:hover {
+  color: #fff !important;
+}
+
+body.dark-mode .contact {
+  background-color: #181f2a !important;
+}
+body.dark-mode .contact .row {
+  background: #232b39 !important;
+  box-shadow: 0 0 25px rgba(20,30,40,0.18) !important;
+}
+body.dark-mode .contact .image {
+  background-color: #181f2a !important;
+}
+body.dark-mode .contact .image img {
+  box-shadow: 0 2px 12px rgba(20,30,40,0.18) !important;
+}
+body.dark-mode .contact form {
+  background: none !important;
+}
+body.dark-mode .contact form h3 {
+  color: #ffe066 !important;
+}
+body.dark-mode .contact form .box {
+  background: #232b39 !important;
+  color: #ffe066 !important;
+  border: 1px solid #3a4660 !important;
+}
+body.dark-mode .contact form .box:focus {
+  background-color: #181f2a !important;
+  color: #f1f2ff !important;
+  border-color: #ffe066 !important;
+  box-shadow: 0 0 0 3px rgba(255, 224, 102, 0.15) !important;
+}
+body.dark-mode .contact form label {
+  color: #ffffff !important;
+}
+body.dark-mode .contact form label i {
+  color: #7d66ff !important;
+}
+body.dark-mode .contact form .btn {
+  background: #ffe066 !important;
+  color: #232b39 !important;
+  box-shadow: 0 4px 10px rgba(20,30,40,0.10) !important;
+}
+body.dark-mode .contact form .btn:hover {
+  background: #232b39 !important;
+  color: #ffe066 !important;
+}
+
+body.dark-mode .contact-banner {
+  background: #232b39 !important;
+  box-shadow: 0 2px 12px rgba(20,30,40,0.18) !important;
+}
+body.dark-mode .contact-banner .banner-text h2 {
+  color: #ffe066 !important;
+}
+body.dark-mode .contact-banner .banner-text p {
+  color: #bfc9d1 !important;
+}
+body.dark-mode .contact-banner .banner-img img {
+  border-color: #ffe066 !important;
+  background: #181f2a !important;
+}
+
+/* Estilos para el mensaje de éxito del formulario de contacto */
+.contact-success-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  background: #e6ffe6;
+  border-radius: 1rem;
+  border: 2px solid #1a7f37;
+  box-shadow: 0 2px 12px rgba(26,127,55,0.08);
+  color: #1a7f37;
+  font-size: 1.2rem;
+  max-width: 400px;
+  margin: 1.5rem auto;
+}
+.contact-success-box i {
+  font-size: 2.5rem;
+  color: #1a7f37;
+}
+
+body.dark-mode .contact-success-box {
+  background: #232b39 !important;
+  border-color: #ffe066 !important;
+  color: #ffe066 !important;
+  box-shadow: 0 2px 12px rgba(255,224,102,0.10) !important;
+}
+body.dark-mode .contact-success-box i {
+  color: #ffe066 !important;
+}
+
+/* Nuevos estilos para el formulario de contacto */
+.contact form .input-group {
+   margin-bottom: 1.5rem;
+   display: flex;
+   flex-direction: column; /* Cambia a columna para que el label quede arriba y el input debajo */
+   align-items: stretch;
+   gap: 0.3rem; /* Menor separación entre label y campo */
+}
+.contact form label {
+   font-size: 1.1rem;
+   color: #222;
+   margin-bottom: 0;
+   font-weight: 500;
+   min-width: unset;
+   text-align: left;
+   display: block;
+}
+.contact form .input-group input,
+.contact form .input-group textarea {
+   flex: unset;
+   width: 100%;
+}
+.contact form .input-group input[type="file"] {
+  display: none;
+}
+.contact form .input-group .custom-file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg, #007bff 0%, #185ea9 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 0.7rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(24,94,169,0.10);
+  transition: background 0.3s, color 0.3s;
+  margin-bottom: 0.2rem;
+}
+.contact form .input-group .custom-file-label i {
+  font-size: 1.2rem;
+}
+.contact form .input-group .custom-file-label:hover,
+.contact form .input-group .custom-file-label:focus {
+  background: linear-gradient(90deg, #185ea9 0%, #007bff 100%);
+  color: #ffe066;
+}
+.contact form .input-group .file-selected {
+  font-size: 0.98rem;
+  color: #185ea9;
+  margin-top: 0.1rem;
+  font-weight: 500;
+  word-break: break-all;
+}
+body.dark-mode .contact form .input-group .custom-file-label {
+  background: linear-gradient(90deg, #7d66ff 0%, #232b39 100%) !important;
+  color: #ffe066 !important;
+  box-shadow: 0 2px 8px rgba(255,224,102,0.10) !important;
+}
+body.dark-mode .contact form .input-group .custom-file-label:hover,
+body.dark-mode .contact form .input-group .custom-file-label:focus {
+  background: linear-gradient(90deg, #232b39 0%, #7d66ff 100%) !important;
+  color: #fff !important;
+}
+body.dark-mode .contact form .input-group .file-selected {
+  color: #ffe066 !important;
+}

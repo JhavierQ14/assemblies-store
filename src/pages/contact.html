@@ -46,7 +46,7 @@
          <div class="image">
             <img src="../images/pexels-olly-789822.jpg" alt="Ilustración Contacto">
          </div>
-         <form action="" method="post">
+         <form action="" method="post" id="contact-form">
             <h3>¡Cuéntanos en qué te podemos ayudar!</h3>
             <div class="input-group">
                <label for="name"><i class="fas fa-user"></i> Nombre</label>
@@ -68,7 +68,14 @@
                <textarea id="msg" name="msg" placeholder="Escribe tu mensaje" required class="box" cols="30" rows="5"
                   maxlength="500"></textarea>
             </div>
+            <div class="input-group">
+               <span class="file-hint">Adjunta una imagen si es necesario (opcional)</span>
+               <label for="contact-image" class="custom-file-label"><i class="fas fa-image"></i> Elegir imagen</label>
+               <input type="file" id="contact-image" name="contact-image" accept="image/*">
+               <span class="file-selected" id="file-selected">Ningún archivo seleccionado</span>
+            </div>
             <input type="submit" value="Enviar mensaje" class="btn" name="send">
+            <div id="contact-success" class="contact-success-message" style="display:none;"></div>
          </form>
       </div>
    </section>
@@ -77,8 +84,42 @@
       <div id="footer"></div>
    </footer>
 
+   <script src="../js/header-theme-toggle.js"></script>
    <script src="../js/script.js"></script>
    <script src="../js/include-fragments.js"></script>
+   <script src="../js/header-profile.js"></script>
+   <script>
+// Mensaje de éxito bonito para el formulario de contacto
+const contactForm = document.getElementById('contact-form');
+const successMsg = document.getElementById('contact-success');
+const fileInput = document.getElementById('contact-image');
+const fileSelected = document.getElementById('file-selected');
+if (fileInput && fileSelected) {
+  fileInput.addEventListener('change', function() {
+    if (fileInput.files && fileInput.files.length > 0) {
+      fileSelected.textContent = fileInput.files[0].name;
+    } else {
+      fileSelected.textContent = 'Ningún archivo seleccionado';
+    }
+  });
+}
+if (contactForm && successMsg) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    contactForm.reset();
+    if (fileSelected) fileSelected.textContent = 'Ningún archivo seleccionado';
+    successMsg.innerHTML = `
+      <div class="contact-success-box">
+        <i class='fas fa-headset'></i>
+        <span><strong>¡Mensaje enviado correctamente!</strong></span>
+        <span>En breve nuestro equipo de soporte técnico se pondrá en contacto contigo.</span>
+      </div>
+    `;
+    successMsg.style.display = 'block';
+    setTimeout(() => { successMsg.style.display = 'none'; }, 8000);
+  });
+}
+</script>
 </body>
 
 </html>

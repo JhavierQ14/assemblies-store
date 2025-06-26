@@ -12,6 +12,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <link rel="stylesheet" href="../css/style.css">
+      <link rel="stylesheet" href="../css/pages/home.css">
 
 </head>
 
@@ -29,8 +30,8 @@
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>¡Arma tu PC hoy!</span>
-                  <h3>Memorias RAM DDR5 en oferta</h3>
+                  <span class="animated-typing" data-typing="¡Arma tu PC hoy!"></span>
+                  <h3 class="animated-typing" data-typing="Memorias RAM DDR5 en oferta"></h3>
                   <a href="store.html" class="btn">Ver productos</a>
                </div>
                <div class="image">
@@ -40,8 +41,8 @@
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>Potencia tu experiencia</span>
-                  <h3>Procesadores Intel y AMD</h3>
+                  <span class="animated-typing" data-typing="Potencia tu experiencia"></span>
+                  <h3 class="animated-typing" data-typing="Procesadores Intel y AMD"></h3>
                   <a href="store.html" class="btn">Ver procesadores</a>
                </div>
                <div class="image">
@@ -51,8 +52,8 @@
 
             <div class="swiper-slide slide">
                <div class="content">
-                  <span>Gaming sin límites</span>
-                  <h3>Tarjetas Gráficas de última generación</h3>
+                  <span class="animated-typing" data-typing="Gaming sin límites"></span>
+                  <h3 class="animated-typing" data-typing="Tarjetas Gráficas de última Gen"></h3>
                   <a href="store.html" class="btn">Ver tarjetas gráficas</a>
                </div>
                <div class="image">
@@ -103,7 +104,6 @@
       <h1 class="title">Ultimos Ingresos</h1>
 
       <div class="box-container">
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -116,7 +116,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -129,7 +128,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -142,7 +140,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -155,7 +152,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -168,7 +164,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
          <form accept="" method="post" class="box">
             <a href="quick_view.html" class="fas fa-eye"></a>
             <button class="fas fa-shopping-cart" type="submit" name="add_to_cart"></button>
@@ -181,7 +176,6 @@
                   onkeypress="if(this.value.length == 2) return false;">
             </div>
          </form>
-
       </div>
 
       <div class="more-btn">
@@ -199,17 +193,84 @@
    <script src="../js/script.js"></script>
    <script src="../js/viewall.js"></script>
    <script src="../js/header-theme-toggle.js"></script>
-
    <script>
-      var swiper = new Swiper(".home-slider", {
-         loop: true,
-         grabCursor: true,
-         effect: "flip",
-         pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-         },
-      });
+      // Animación de armado y retroceso de letras en los textos del slide activo
+function animateTypingLoop(element, text, delay = 60, pause = 1200) {
+  let charIndex = 0;
+  let typing = true;
+  let timeoutId;
+
+  function type() {
+    if (typing) {
+      if (charIndex <= text.length) {
+        element.textContent = text.substring(0, charIndex);
+        charIndex++;
+        timeoutId = setTimeout(type, delay);
+      } else {
+        typing = false;
+        timeoutId = setTimeout(type, pause); // Pausa antes de borrar
+      }
+    } else {
+      if (charIndex >= 0) {
+        element.textContent = text.substring(0, charIndex);
+        charIndex--;
+        timeoutId = setTimeout(type, delay);
+      } else {
+        typing = true;
+        timeoutId = setTimeout(type, pause / 2); // Pausa antes de volver a escribir
+      }
+    }
+  }
+  type();
+  // Devuelve función para limpiar el ciclo
+  return () => clearTimeout(timeoutId);
+}
+
+let cleanupTyping = [];
+function resetAllTyping() {
+  cleanupTyping.forEach(fn => fn && fn());
+  cleanupTyping = [];
+  document.querySelectorAll('.animated-typing').forEach(el => el.textContent = '');
+}
+function handleSlideChange(swiper) {
+  resetAllTyping();
+  const activeSlide = swiper.slides[swiper.activeIndex];
+  const typingEls = activeSlide.querySelectorAll('.animated-typing');
+  // Animar en secuencia: primero el span, luego el h3
+  if (typingEls.length > 1) {
+    let firstDone = false;
+    function animateSecond() {
+      cleanupTyping[1] = animateTypingLoop(typingEls[1], typingEls[1].getAttribute('data-typing'), 60, 1200);
+    }
+    cleanupTyping[0] = animateTypingLoop(typingEls[0], typingEls[0].getAttribute('data-typing'), 60, 1200);
+    // Lanzar el segundo después de que el primero termine de escribir la primera vez
+    let observer = new MutationObserver(() => {
+      if (!firstDone && typingEls[0].textContent === typingEls[0].getAttribute('data-typing')) {
+        firstDone = true;
+        animateSecond();
+        observer.disconnect();
+      }
+    });
+    observer.observe(typingEls[0], { childList: true });
+  } else if (typingEls.length === 1) {
+    cleanupTyping[0] = animateTypingLoop(typingEls[0], typingEls[0].getAttribute('data-typing'), 60, 1200);
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.home-slider', {
+    loop: true,
+    grabCursor: true,
+    effect: 'flip',
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    on: {
+      init: function() { handleSlideChange(this); },
+      slideChange: function() { handleSlideChange(this); }
+    }
+  });
+});
    </script>
 
 </body>

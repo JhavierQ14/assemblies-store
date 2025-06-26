@@ -13,7 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
    // Cargar header
    const headerDiv = document.getElementById('header');
    if (headerDiv) {
-      fetch('header.html')
+      // Detectar ruta relativa correcta
+      let headerPath = 'header.html';
+      if (!window.location.pathname.endsWith('/src/pages/header.html')) {
+         headerPath = window.location.pathname.includes('/src/pages/') ? 'header.html' : 'pages/header.html';
+      }
+      fetch(headerPath)
          .then(response => response.text())
          .then(data => {
             headerDiv.innerHTML = data;
@@ -26,7 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
    // Cargar footer
    const footerDiv = document.getElementById('footer');
    if (footerDiv) {
-      fetch('footer.html')
+      let footerPath = 'footer.html';
+      if (!window.location.pathname.endsWith('/src/pages/footer.html')) {
+         footerPath = window.location.pathname.includes('/src/pages/') ? 'footer.html' : 'pages/footer.html';
+      }
+      fetch(footerPath)
          .then(response => response.text())
          .then(data => {
             footerDiv.innerHTML = data;

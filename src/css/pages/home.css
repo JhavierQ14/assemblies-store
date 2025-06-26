@@ -3,3 +3,69 @@
 .heading, .home, .category {
   /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
 }
+
+/* Animación de armado de letras para el home */
+.animated-typing,
+h3.animated-typing {
+  display: block;
+  min-height: 2.2em;
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #ff9800;
+  letter-spacing: 1.5px;
+  white-space: pre;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  margin-bottom: 0.5rem;
+  transition: min-height 0.2s, color 0.3s;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .animated-typing,
+  h3.animated-typing {
+    font-size: 1.7rem;
+    min-height: 1.3em;
+  }
+}
+.home .slide .image img {
+   width: 100%;
+   max-width: 600px;
+   min-width: 320px;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+   object-fit: contain;
+   transition: none;
+}
+.swiper-slide .content {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.swiper-slide .btn {
+  margin-top: 1.2rem;
+  align-self: flex-start;
+  position: relative;
+  z-index: 2;
+}
+.swiper-slide .image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: none;
+}
+
+.animated-typing {
+  color: #ff9800; /* Naranja moderno, puedes cambiarlo por otro si lo prefieres */
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+body.dark-mode .animated-typing {
+  color: #ffd166; /* Naranja claro para mejor contraste en modo oscuro */
+}

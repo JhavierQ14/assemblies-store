@@ -202,6 +202,72 @@ section{
    color: var(--yellow);
 }
 
+/* Mini panel de perfil en header */
+.profile {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px #185ea911;
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  position: absolute;
+  top: 5.5rem;
+  right: 2rem;
+  min-width: 220px;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+.profile-user-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.profile-avatar-mini {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffd700;
+  background: #f5f7fa;
+}
+#profile-name-mini {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #185ea9;
+  margin: 0;
+}
+.profile-btn-mini {
+  background: linear-gradient(90deg, #185ea9 60%, #ffd700 100%);
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  margin-right: 0.5rem;
+  transition: background .2s, color .2s;
+}
+.profile-btn-mini:hover {
+  background: #ffd700;
+  color: #185ea9;
+}
+.logout-btn-mini {
+  background: #e74c3c;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  transition: background .2s, color .2s;
+}
+.logout-btn-mini:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
 #menu-btn{
    display: none;
 }
@@ -223,20 +289,21 @@ section{
    flex:1 1 40rem;
 }
 
-.home .slide .image img{
-   width: 100%;
+.home .slide .image img {
+   width: 420px;
+   max-width: 100%;
+   height: auto;
+   display: block;
+   margin: 0 auto;
+   object-fit: contain;
+   transition: none;
 }
 
-.home .slide .content span{
-   font-size: 2.5rem;
-   color: var(--light-color);
-}
-
-.home .slide .content h3{
-   font-size: 5rem;
-   text-transform: capitalize;
-   color: var(--black);
-   padding:1rem 0;
+@media (max-width: 600px) {
+  .home .slide .image img {
+    width: 90vw;
+    max-width: 95vw;
+  }
 }
 
 .swiper-pagination-bullet-active{
