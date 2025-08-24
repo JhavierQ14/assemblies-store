@@ -1,0 +1,167 @@
+/* Card de review exclusiva para about.html */
+.review-card {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+	padding: 30px 25px;
+	transition: transform 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 340px;
+	max-height: 340px;
+	height: 340px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.review-card:hover {
+	transform: translateY(-10px);
+}
+
+.review-card img {
+	width: 90px;
+	height: 90px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin-bottom: 20px;
+	border: 3px solid #007bff;
+	flex-shrink: 0;
+}
+
+.review-card p {
+	font-size: 1rem;
+	color: #555;
+	line-height: 1.6;
+	margin-bottom: 20px;
+	font-style: italic;
+	overflow-y: auto;
+	max-height: 90px;
+	min-height: 90px;
+	width: 100%;
+	flex: 1 1 auto;
+	margin-top: 0;
+}
+
+.review-card .stars {
+	color: #ffc107;
+	font-size: 1.2rem;
+	margin-bottom: 10px;
+	flex-shrink: 0;
+}
+
+.review-card h3 {
+	font-size: 1.1rem;
+	color: #222;
+	font-weight: 600;
+	text-transform: capitalize;
+	flex-shrink: 0;
+	margin-bottom: 0;
+}
+
+/* Estilos específicos para about.html */
+
+.heading {
+	text-align: center;
+	background: #f1f3f5;
+	padding: 2rem;
+	border-radius: 1.2rem;
+	margin: 2rem auto 2.5rem auto;
+	max-width: 1100px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.heading h3 {
+	font-size: 2.5rem;
+	color: #111;
+	margin-bottom: 0.5rem;
+}
+
+.heading p {
+	font-size: 1rem;
+	color: #555;
+}
+
+.heading a {
+	color: #007bff;
+	text-decoration: none;
+}
+
+.heading a:hover {
+	text-decoration: underline;
+}
+
+.about {
+	background-color: #0f1115;
+	color: #eaeaea;
+	padding: 60px 20px;
+	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about .container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.about-title {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: #1a1d24;
+}
+
+.about-text {
+	font-size: 1.6rem;
+	margin-bottom: 40px;
+	line-height: 1.6;
+	color: #413c3c;
+}
+
+.about-features {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.feature {
+	background-color: #1a1d24;
+	padding: 20px;
+	border-radius: 12px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 255, 213, 0.2);
+}
+
+.feature .icon {
+	font-size: 2rem;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+
+.feature h3 {
+	font-size: 1.3rem;
+	margin-bottom: 10px;
+	color: #ffffff;
+}
+
+.feature p {
+	font-size: 1rem;
+	color: #bcbcbc;
+}
+
+@media (min-width: 768px) {
+	.about-features {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.feature {
+		flex: 1;
+		margin: 0 10px;
+	}
+}
+

@@ -1,0 +1,10 @@
+/* Home page specific styles (copied) */
+.home-hero {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+.home-hero .swiper-container {
+  border-radius: 1rem;
+  overflow: hidden;
+}

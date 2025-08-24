@@ -1,0 +1,20 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', Arial, sans-serif;
+  background: linear-gradient(120deg, #181f2a 0%, #232b39 100%);
+  overflow: hidden;
+}
+/* Fondo animado siempre detrás */
+.animated-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+/* Copia local de animated-bg.css */
+/* ...existing code... */

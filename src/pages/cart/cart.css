@@ -1,0 +1,120 @@
+/* Estilos específicos para cart.html */
+
+.heading, .products {
+  /* Hereda estilos globales, pero puedes personalizar aquí si es necesario */
+}
+
+.products .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 33rem);
+   gap:1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+}
+
+.products .box-container .box{
+   position: relative;
+   border: none;
+   padding:2rem 2.5rem 2.5rem 2.5rem;
+   overflow: hidden;
+   background: linear-gradient(135deg, #f8fafc 60%, #e3e9f7 100%);
+   border-radius: 1.3rem;
+   box-shadow: 0 4px 24px 0 rgba(80,100,120,0.10), 0 1.5px 4px 0 rgba(80,100,120,0.06);
+   transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.products .box-container .box:hover {
+   box-shadow: 0 8px 32px 0 rgba(80,100,120,0.18), 0 3px 12px 0 rgba(80,100,120,0.10);
+   background: linear-gradient(135deg, #e3e9f7 60%, #f8fafc 100%);
+   transform: translateY(-6px) scale(1.025);
+}
+
+.products .box-container .box img{
+   border-radius: 1rem;
+   box-shadow: 0 2px 12px rgba(80,100,120,0.10);
+   margin-bottom: 1.2rem;
+   background: #fff;
+   padding: 0.5rem;
+}
+
+.products .box-container .box .cat{
+   font-size: 1.7rem;
+   color: var(--light-color);
+}
+
+.products .box-container .box .cat:hover{
+   color: var(--yellow);
+}
+
+.products .box-container .box .name{
+   font-size: 2.1rem;
+   margin: 1rem 0 0.5rem 0;
+   color: #1a2236;
+   font-weight: 600;
+   text-align: center;
+   letter-spacing: 0.2px;
+}
+
+.products .box-container .box .flex{
+   background: #f1f3fa;
+   border-radius: 0.7rem;
+   padding: 0.7rem 1rem;
+   margin: 0.7rem 0 0.5rem 0;
+   box-shadow: 0 1px 4px rgba(80,100,120,0.06);
+   width: 100%;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+}
+
+.products .box-container .box .flex .price{
+   margin-right: auto;
+   font-size: 2.5rem;
+   color: var(--black);
+}
+
+.products .box-container .box .flex .price span{
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+.products .box-container .box .flex .qty{
+   padding:1rem;
+   font-size: 1.8rem;
+   border:var(--border);
+   color: var(--black);
+   width: 7rem;
+}
+
+.products .box-container .box .flex .fa-edit{
+   width: 5rem;
+   background-color: var(--yellow);
+   color: var(--black);
+   cursor: pointer;
+   height: 4.5rem;
+   font-size: 2rem;
+   border:var(--border); 
+   border-radius: 0.5rem;
+   box-shadow: 0 1px 4px rgba(80,100,120,0.08);
+}
+
+.products .box-container .box .flex .fa-edit:hover{
+   background: #185ea9;
+   color: #fff;
+}
+
+.products .box-container .box .sub-total{
+   background: #e9ecef;
+   border-radius: 0.5rem;
+   padding: 0.5rem 1rem;
+   margin-top: 1rem;
+   font-size: 1.6rem;
+   color: #4a5568;
+   width: fit-content;
+   align-self: flex-end;
+}
+/* Copia local de cart.css */
+/* ...existing code... */

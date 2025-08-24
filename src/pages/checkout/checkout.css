@@ -1,0 +1,53 @@
+/* --- NUEVO DISEÑO MODERNO Y ELEGANTE PARA CHECKOUT --- */
+body {
+  background: linear-gradient(120deg, #e0e7ef 0%, #f5f7fa 100%);
+}
+.checkout-container {
+  background: rgba(255,255,255,0.95);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(80,100,120,0.18), 0 1.5px 4px 0 rgba(80,100,120,0.10);
+  padding: 3.5rem 3rem 2.5rem 3rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+.checkout-container::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, #ffd700 0%, #185ea9 100%);
+  opacity: 0.12;
+  border-radius: 50%;
+  z-index: 0;
+}
+.checkout-container::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 180px; height: 180px;
+  background: linear-gradient(135deg, #185ea9 0%, #ffd700 100%);
+  opacity: 0.10;
+  border-radius: 50%;
+  z-index: 0;
+}
+.cart-items, .user-info {
+  background: rgba(255,255,255,0.98);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px rgba(80,100,120,0.10);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  flex: 1 1 45%;
+  min-width: 320px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow .2s;
+}
+/* Copia local de checkout.css */
+/* ...existing code... */

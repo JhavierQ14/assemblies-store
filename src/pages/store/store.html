@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tienda</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="../../css/style.css">
+   <link rel="stylesheet" href="store/store.css">
+   <link rel="stylesheet" href="store/product-modal.css">
+</head>
+<body>
+   <header class="header">
+      <div id="header"></div>
+   </header>
+
+   <div class="store-main">
+      <aside class="store-sidebar">
+         <form id="store-filters">
+            <h3>Filtrar productos</h3>
+            <!-- filtros... -->
+         </form>
+      </aside>
+      <nav id="store-pagination" class="store-pagination"></nav>
+      <main class="store-content">
+         <div class="heading">
+            <h3>Nuestros productos</h3>
+            <p><a href="../home/home.html">Inicio </a> <span> / Tienda</span></p>
+         </div>
+         <section class="products">
+            <h1 class="title">Últimos Ingresos</h1>
+            <div class="box-container">
+               <!-- productos… -->
+            </div>
+         </section>
+      </main>
+   </div>
+   <footer class="footer">
+      <div id="footer"></div>
+   </footer>
+
+   <script src="/src/components/include-fragments.js"></script>
+   <script src="../../js/script.js"></script>
+   <script src="../../js/header-profile.js"></script>
+   <script src="../../js/header-theme-toggle.js"></script>
+   <script src="store/product-modal.js"></script>
+   <script src="store/filters.js"></script>
+   <script src="store/pagination.js"></script>
+</body>
+</html>

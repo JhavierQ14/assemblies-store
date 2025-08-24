@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>my cart</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="../../css/style.css">
+   <link rel="stylesheet" href="cart/cart.css">
+</head>
+<body>
+   <header class="header">
+     <div id="header"></div>
+   </header>
+   <div class="heading">
+      <h3>Carrito de compras</h3>
+      <p><a href="../home/home.html">Inicio </a> <span> / Carrito</span></p>
+   </div>
+   <section class="products">
+      <h1 class="title">Tu carrito</h1>
+      <div class="cart-total">
+         <p>Total a pagar : <span>$0</span></p>
+         <a href="../checkout/checkout.html" class="btn">Finalizar compra</a>
+      </div>
+      <div class="box-container"></div>
+      <div class="more-btn">
+         <a href="#" class="delete-btn">Eliminar todo</a>
+      </div>
+   </section>
+   <div id="quickViewModal" class="quick-view-modal" style="display:none;">
+     <div class="quick-view-content">
+       <span class="close-modal" id="closeQuickView">&times;</span>
+       <div class="quick-view-details">
+         <h2 id="quickViewName"></h2>
+         <p id="quickViewSpecs"></p>
+         <div class="quick-view-price" id="quickViewPrice"></div>
+       </div>
+       <div class="quick-view-img-col">
+         <img id="quickViewImg" src="" alt="Producto" />
+       </div>
+     </div>
+   </div>
+   <footer class="footer">
+     <div id="footer"></div>
+   </footer>
+  <script src="/src/components/include-fragments.js"></script>
+  <script src="../../js/script.js"></script>
+  <script src="cart/cart.js"></script>
+  <script src="../../js/header-theme-toggle.js"></script>
+</body>
+</html>

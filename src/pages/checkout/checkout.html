@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>checkout</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   <link rel="stylesheet" href="../../css/style.css">
+   <link rel="stylesheet" href="checkout/checkout.css">
+</head>
+<body>
+   <header class="header"><div id="header"></div></header>
+   <div class="heading"><h3>Finalizar compra</h3><p><a href="../home/home.html">Inicio </a> <span> / Checkout</span></p></div>
+   <section class="checkout">
+      <h1 class="title">Resumen de tu pedido</h1>
+      <form action="" method="post" class="checkout-container horizontal-layout">
+         <div class="cart-items">
+            <h3>Productos en tu carrito</h3>
+            <div class="cart-table-wrapper">
+              <table class="cart-table">
+                <thead><tr><th>Producto</th><th>Cantidad</th><th>Precio unitario</th><th>Subtotal</th></tr></thead>
+                <tbody id="checkout-products-body"></tbody>
+              </table>
+            </div>
+            <a href="../cart/cart.html" class="btn secondary-btn">Ver carrito</a>
+         </div>
+         <div class="user-info">
+            <h3>Tus datos</h3>
+            <div class="user-data-row"><i class="fas fa-user"></i><span id="checkout-user-name">Usuario</span></div>
+            <div class="user-data-row"><i class="fas fa-phone"></i><span id="checkout-user-phone"></span></div>
+            <div class="user-data-row"><i class="fas fa-envelope"></i><span id="checkout-user-email"></span></div>
+            <a href="../update_profile/update_profile.html" class="btn secondary-btn">Actualizar datos</a>
+            <h3>Dirección de entrega</h3>
+            <div class="user-data-row"><i class="fas fa-map-marker-alt"></i><span id="checkout-user-address"></span></div>
+            <a href="../update_address/update_address.html" class="btn secondary-btn">Actualizar dirección</a>
+            <select name="method" class="box" id="payment-method" required>
+               <option value="" disabled selected>Selecciona método de pago</option>
+               <option value="cash on delivery">Pago contra entrega</option>
+               <option value="credit card">Tarjeta de crédito</option>
+               <option value="debit card">Tarjeta de débito</option>
+               <option value="paypal">PayPal</option>
+            </select>
+            <div id="card-panel" class="card-panel" style="display:none;"></div>
+            <div id="paypal-panel" class="paypal-panel" style="display:none;"></div>
+            <div id="cod-panel" class="cod-panel" style="display:none;"></div>
+            <input type="submit" value="Realizar pedido" name="order" class="btn order-btn">
+         </div>
+      </form>
+   </section>
+   <script src="checkout/checkout.js"></script>
+   <script src="checkout/checkout-user.js"></script>
+   <script src="checkout/checkout-user-data.js"></script>
+   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+</body>
+</html>

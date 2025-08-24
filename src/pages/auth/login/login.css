@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root{
+   --yellow:#fed330;
+   --red:#e74c3c;
+   --white:#fff;
+   --black:#222;
+   --light-color:#777;
+   --border:.2rem solid var(--black);
+   --light-bg:#f5f5f5;
+}
+
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition: .2s linear;
+}
+
+*::selection{
+   background-color: var(--yellow);
+   color:var(--black);
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background: linear-gradient(135deg, #e0e7ef 0%, #cfd9df 100%);
+   min-height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 2rem;
+}
+
+.login-container{
+   width: 100%;
+   max-width: 45rem;
+}
+
+.login-box{
+   background-color: #fff;
+   border-radius: 1rem;
+   box-shadow: 0 8px 32px 0 rgba(24,94,169,0.10), 0 1.5px 4px 0 rgba(80,100,120,0.06);
+   overflow: hidden;
+}
+
+.logo-section{
+   background-color: #222e3a;
+   color: #fff;
+   text-align: center;
+   padding: 3rem 2rem;
+}
+
+.logo-section h1{
+   font-size: 3rem;
+   margin-bottom: .5rem;
+   letter-spacing: 1px;
+}
+
+.logo-section p{
+   font-size: 1.6rem;
+   color: #b0b8c1;
+}
+
+.login-form{
+   padding: 3rem 2rem;
+}
+
+.login-form h3{
+   font-size: 2.5rem;
+   color: #222e3a;
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: capitalize;
+}
+
+.input-group{
+   position: relative;
+   margin-bottom: 2rem;
+}
+
+.input-group i{
+   position: absolute;
+   top: 50%;
+   left: 1.5rem;
+   transform: translateY(-50%);
+   font-size: 1.8rem;
+   color: var(--light-color);
+   z-index: 1;
+}
+
+.input-group .box{
+   width: 100%;
+   padding: 1.5rem 1.5rem 1.5rem 5rem;
+   font-size: 1.8rem;
+   color: var(--black);
+   border: 1.5px solid #cfd9df;
+   border-radius: .5rem;
+   background-color: #f5f7fa;
+}
+
+.input-group .box:focus{
+   background-color: #fff;
+   border-color: #222e3a;
+}
+
+.btn, .social-btn {
+   width: 100%;
+   padding: 1.3rem 0;
+   font-size: 1.7rem;
+   border-radius: 2.5rem !important;
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   transition: background 0.2s, color 0.2s, box-shadow 0.18s, transform 0.13s;
+   box-shadow: 0 2px 8px rgba(24,94,169,0.10);
+}
+.btn {
+   background: #222e3a;
+   color: #fff;
+   font-weight: 600;
+   border: none;
+   cursor: pointer;
+}
+.btn:hover {
+   background: #3a4a5d;
+   color: #ffd700;
+   transform: translateY(-2px) scale(1.04);
+}
+.social-btn {
+   width: 100%;
+   padding: 1.3rem 0;
+   font-size: 1.7rem;
+   border-radius: 2.5rem !important;
+   margin-bottom: 1.2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.13s;
+   box-shadow: 0 2px 8px rgba(24,94,169,0.10);
+   border: none;
+   font-weight: 600;
+   letter-spacing: 0.2px;
+   position: relative;
+   overflow: hidden;
+   background: #f5f7fa;
+}
+.social-btn i {
+   font-size: 2.1rem;
+   margin-right: 0.7rem;
+}
+.social-btn.google {
+   border: 1.5px solid #ea4335;
+   color: #ea4335;
+   background: linear-gradient(90deg, #fff 60%, #fbe9e7 100%);
+}
+.social-btn.facebook {
+   border: 1.5px solid #1877f3;
+   color: #1877f3;
+   background: linear-gradient(90deg, #fff 60%, #e3f0ff 100%);
+}
+.social-btn.microsoft {
+   border: 1.5px solid #5e5e5e;
+   color: #5e5e5e;
+   background: linear-gradient(90deg, #fff 60%, #f3f3f3 100%);
+}
+.social-btn.google:hover {
+   background: #ea4335;
+   color: #fff;
+   box-shadow: 0 8px 24px 0 #ea433544;
+}
+.social-btn.facebook:hover {
+   background: #1877f3;
+   color: #fff;
+   box-shadow: 0 8px 24px 0 #1877f344;
+}
+.social-btn.microsoft:hover {
+   background: #5e5e5e;
+   color: #fff;
+   box-shadow: 0 8px 24px 0 #5e5e5e44;
+}
+.social-btn::after {
+   content: '';
+   position: absolute;
+   left: 0; top: 0; right: 0; bottom: 0;
+   border-radius: 2.5rem;
+   opacity: 0;
+   transition: opacity 0.3s;
+   z-index: 0;
+}
+.social-btn:active {
+   transform: scale(0.98);
+}
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+    min-height: unset;
+    max-width: 98vw;
+  }
+  .login-image-section {
+    border-radius: 1rem 1rem 0 0;
+    min-height: 180px;
+    padding: 0;
+  }
+  .login-image-section img {
+    border-radius: 1rem 1rem 0 0;
+    height: 180px;
+    min-width: unset;
+  }
+  .login-box {
+    border-radius: 0 0 1rem 1rem;
+  }
+}

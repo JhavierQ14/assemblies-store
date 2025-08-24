@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>my profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="profile/profile.css">
+</head>
+<body>
+  <header class="header"><div id="header"></div></header>
+  <div class="heading"><h3>Mi perfil</h3><p><a href="../home/home.html">Inicio </a> <span> / Perfil</span></p></div>
+  <section class="user-details">
+    <div class="user">
+      <div class="profile-avatar-container">
+        <img src="../../assets/images/user-icon.png" alt="Avatar" class="profile-avatar" id="profile-avatar">
+        <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+        <button class="edit-avatar-btn" id="edit-avatar"><i class="fas fa-camera"></i></button>
+      </div>
+      <h2 class="profile-name" id="profile-name">Usuario</h2>
+      <p class="profile-role">Cliente</p>
+      <div class="profile-info-list">
+        <p><i class="fas fa-phone"></i> <span id="profile-phone">-</span></p>
+        <p><i class="fas fa-envelope"></i> <span id="profile-email">-</span></p>
+        <p class="address"><i class="fas fa-map-marker-alt"></i> <span id="profile-address">-</span></p>
+      </div>
+      <div class="profile-actions">
+        <a href="../update_profile/update_profile.html" class="btn"><i class="fas fa-user-edit"></i> Editar perfil</a>
+        <a href="../update_address/update_address.html" class="btn"><i class="fas fa-map-marked-alt"></i> Editar dirección</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer"><div id="footer"></div></footer>
+  <script src="/src/components/include-fragments.js"></script>
+  <script src="../../js/script.js"></script>
+  <script src="profile/profile.js"></script>
+  <script src="profile/profile-address.js"></script>
+  <script src="../../js/header-theme-toggle.js"></script>
+</body>
+</html>

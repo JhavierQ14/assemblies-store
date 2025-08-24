@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar OTP - Assemblies Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="./verify-otp.css">
+  <link rel="stylesheet" href="../animated-bg/animated-bg.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo-section">
+        <h1>Verificación de cuenta</h1>
+        <p>Introduce el código que te enviamos por correo</p>
+      </div>
+      <form class="otp-form">
+        <input type="hidden" name="email" />
+        <p style="margin:0 0 1rem 0;">Introduce el código de 6 dígitos que te enviamos por correo.</p>
+        <div class="otp-container" style="display:flex; gap:0.6rem; justify-content:center; margin-bottom:1rem;">
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+          <input inputmode="numeric" pattern="\d*" maxlength="1" class="otp-input box" />
+        </div>
+        <input type="submit" value="Verificar" class="btn" />
+      </form>
+      <p class="register-link">¿No recibiste el código? <a href="#" id="resendLink">Reenviar código</a></p>
+    </div>
+  </div>
+  <div id="resendModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Reenviar código OTP</h3>
+      <p class="modal-info">Confirma el correo donde quieres recibir el código. Puedes editarlo si es necesario.</p>
+      <input type="email" id="resendEmail" class="box" placeholder="Correo electrónico" />
+      <div style="display:flex; gap:0.6rem; margin-top:1rem;">
+        <button id="confirmResend" class="btn">Enviar</button>
+        <button id="cancelResend" class="btn" style="background:#fff; color:var(--black); border:1px solid #e6ebf2;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./verify-otp.js"></script>
+</body>
+</html>

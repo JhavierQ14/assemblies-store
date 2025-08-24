@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Actualizar dirección</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="update_address/update_address.css">
+</head>
+<body>
+  <header class="header"><div id="header"></div></header>
+  <div class="heading"><h3>Actualizar dirección</h3><p><a href="../home/home.html">Inicio </a> <span> / Dirección</span></p></div>
+  <section class="update-address">
+    <form id="address-form">
+      <input name="flat" placeholder="Apartamento / número" />
+      <input name="street" placeholder="Calle" />
+      <input name="city" placeholder="Ciudad" />
+      <input name="state" placeholder="Departamento / Estado" />
+      <input name="country" placeholder="País" />
+      <input name="pin_code" placeholder="Código postal" />
+      <textarea name="additional" placeholder="Instrucciones adicionales"></textarea>
+      <button type="submit" class="btn">Guardar dirección</button>
+    </form>
+  </section>
+  <script src="/src/components/include-fragments.js"></script>
+  <script src="../../js/script.js"></script>
+  <script src="update_address/update_address.js"></script>
+</body>
+</html>
