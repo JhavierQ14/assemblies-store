@@ -1,16 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contacto</title>
-  <link rel="stylesheet" href="../../css/style.css">
-  <link rel="stylesheet" href="contact/contact.css">
+  <title>Contacto - Assemblies Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="./contact.css">
 </head>
 <body>
-  <header class="header"><div id="header"></div></header>
-  <section class="contact"><h1>Contacto</h1></section>
-  <script src="/src/components/include-fragments.js"></script>
-  <script src="../../js/script.js"></script>
+  <header class="header">
+    <div id="header"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-contact">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>¿Necesitas <span class="highlight">Ayuda?</span></h1>
+          <p class="hero-description">
+            Estamos aquí para resolver todas tus dudas sobre hardware, ensamblaje de PCs y nuestros productos. 
+            Nuestro equipo de expertos está listo para ayudarte.
+          </p>
+          <div class="contact-stats">
+            <div class="stat">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Soporte</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">5★</span>
+              <span class="stat-label">Calificación</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2h</span>
+              <span class="stat-label">Respuesta</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="../../assets/images/contact-img.svg" alt="Contacto">
+          <div class="floating-element element-1">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="floating-element element-2">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="floating-element element-3">
+            <i class="fas fa-phone"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Methods Section -->
+  <section class="contact-methods">
+    <div class="container">
+      <div class="section-header">
+        <h2>Múltiples Formas de Contactarnos</h2>
+        <p>Elige la opción que más te convenga para ponerte en contacto con nosotros</p>
+      </div>
+      <div class="methods-grid">
+        <div class="method-card">
+          <div class="method-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <h3>Llámanos</h3>
+          <p>Habla directamente con nuestros expertos</p>
+          <div class="method-info">
+            <span class="phone-number">+1 (555) 123-4567</span>
+            <span class="availability">Lun - Vie: 9:00 AM - 6:00 PM</span>
+          </div>
+          <a href="tel:+15551234567" class="method-btn">
+            <i class="fas fa-phone"></i> Llamar Ahora
+          </a>
+        </div>
+
+        <div class="method-card featured">
+          <div class="method-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email</h3>
+          <p>Respuesta garantizada en menos de 2 horas</p>
+          <div class="method-info">
+            <span class="email">soporte@assembliesstore.com</span>
+            <span class="availability">Respuesta rápida garantizada</span>
+          </div>
+          <a href="mailto:soporte@assembliesstore.com" class="method-btn">
+            <i class="fas fa-envelope"></i> Enviar Email
+          </a>
+        </div>
+
+        <div class="method-card">
+          <div class="method-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Chat en Vivo</h3>
+          <p>Soporte instantáneo mientras navegas</p>
+          <div class="method-info">
+            <span class="chat-status online">● En línea ahora</span>
+            <span class="availability">Disponible 24/7</span>
+          </div>
+          <button class="method-btn" onclick="openLiveChat()">
+            <i class="fas fa-comments"></i> Iniciar Chat
+          </button>
+        </div>
+
+        <div class="method-card">
+          <div class="method-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>Chatea desde tu móvil</p>
+          <div class="method-info">
+            <span class="whatsapp-number">+1 (555) 987-6543</span>
+            <span class="availability">Respuesta inmediata</span>
+          </div>
+          <a href="https://wa.me/15559876543" class="method-btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chatear
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="form-container">
+        <div class="form-info">
+          <h2>Envíanos un Mensaje</h2>
+          <p>¿Tienes una consulta específica? Completa el formulario y te responderemos lo antes posible.</p>
+          
+          <div class="info-benefits">
+            <div class="benefit">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Respuesta Rápida</h4>
+                <p>Te respondemos en menos de 2 horas laborales</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-user-tie"></i>
+              <div>
+                <h4>Expertos Certificados</h4>
+                <p>Nuestro equipo tiene años de experiencia</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <h4>100% Confidencial</h4>
+                <p>Tu información está completamente segura</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-cards">
+            <div class="info-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Nuestra Oficina</h4>
+                <p>123 Tech Avenue<br>Silicon Valley, CA 94025</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Horarios</h4>
+                <p>Lun - Vie: 9:00 AM - 6:00 PM<br>Sáb: 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-header">
+              <h3>¿En qué podemos ayudarte?</h3>
+              <p>Completa todos los campos para una respuesta más rápida</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Nombre *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Apellido *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Asunto *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Selecciona un tema</option>
+                <option value="consulta-producto">Consulta sobre Producto</option>
+                <option value="asesoria-pc">Asesoría para Armar PC</option>
+                <option value="soporte-tecnico">Soporte Técnico</option>
+                <option value="garantia">Garantía y Devoluciones</option>
+                <option value="cotizacion">Solicitar Cotización</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje *</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Describe tu consulta en detalle..."></textarea>
+              <span class="char-counter">0/500</span>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <span class="checkmark"></span>
+                Quiero recibir noticias y ofertas especiales por email
+              </label>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                <span class="checkmark"></span>
+                Acepto los <a href="#" target="_blank">términos y condiciones</a> y la <a href="#" target="_blank">política de privacidad</a> *
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Enviar Mensaje</span>
+              <span class="btn-loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Enviando...
+              </span>
+            </button>
+
+            <div class="form-success" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              <h4>¡Mensaje Enviado!</h4>
+              <p>Gracias por contactarnos. Te responderemos pronto.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Preguntas Frecuentes</h2>
+        <p>Encuentra respuestas rápidas a las consultas más comunes</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>¿Ofrecen servicio de ensamblaje de PC?</h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, ofrecemos servicio completo de ensamblaje de PC. Nuestros técnicos certificados pueden armar tu computadora con los componentes que elijas, incluyendo instalación del sistema operativo y software básico.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>¿Qué garantía tienen los productos?</h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Todos nuestros productos tienen garantía del fabricante. Adicionalmente, ofrecemos 30 días de garantía de satisfacción: si no estás completamente satisfecho, puedes devolver el producto.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>¿Hacen envíos a toda la región?</h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Sí, realizamos envíos a nivel nacional. Los tiempos de entrega varían según la ubicación: 1-2 días para áreas metropolitanas y 3-5 días para otras regiones. Envío gratis en compras superiores a $100.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>¿Puedo obtener asesoría personalizada?</h4>
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="faq-answer">
+            <p>¡Por supuesto! Nuestros expertos pueden ayudarte a elegir los mejores componentes según tu presupuesto y necesidades. Contáctanos por cualquier medio y te brindaremos asesoría gratuita.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div id="footer"></div>
+  </footer>
+
+  <script src="../../components/include-fragments.js"></script>
+  <script src="./contact.js"></script>
 </body>
 </html>

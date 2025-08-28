@@ -1,0 +1,194 @@
+@media (max-width: 1247px) {
+  .categories-megamenu-dropdown.open-only {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.18);
+    z-index: 2001;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .categories-megamenu-dropdown.open-only .categories-megamenu {
+    position: relative;
+    top: 4rem;
+    left: 0;
+    margin: 0 auto;
+    width: 98vw;
+    max-width: 500px;
+    min-width: 0;
+    border-radius: 0.7rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    background: var(--white);
+    flex-direction: column;
+    padding: 0;
+  }
+  .categories-megamenu-dropdown.open-only ~ .navbar > *:not(.categories-megamenu-dropdown) {
+    display: none !important;
+  }
+  .categories-megamenu-dropdown.open-only .categories-toggle {
+    display: none;
+  }
+  .categories-megamenu-dropdown.open-only .back-to-main {
+    display: block;
+    background: var(--yellow);
+    color: var(--black);
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem;
+    margin: 1rem 0 0 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  /* Fix para evitar que el clip-path del navbar corte el megamenú */
+  .navbar.active .categories-megamenu-dropdown:not(.open-only) {
+    position: relative;
+    z-index: 1002;
+  }
+  
+  /* Permitir que el megamenú se desborde del navbar cuando está abierto */
+  .navbar.active.megamenu-open {
+    overflow: visible !important;
+    clip-path: none !important;
+  }
+}
+/* ========== MEGA MENU CATEGORÍAS ========== */
+.categories-megamenu-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.categories-toggle {
+  margin: 0 1rem;
+  font-size: 2rem;
+  color: var(--black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.categories-toggle:hover {
+  color: var(--yellow);
+}
+.categories-megamenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 540px;
+  min-width: 320px;
+  max-width: 90vw;
+  background: var(--white);
+  border: var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: row;
+  z-index: 1001;
+  padding: 0;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+.categories-list {
+  flex: 0 0 180px;
+  background: var(--light-bg);
+  display: flex;
+  flex-direction: column;
+  border-right: var(--border);
+  padding: 0.5rem 0;
+}
+.category-btn {
+  background: none;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 1rem 1.2rem;
+  font-size: 1.15rem;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.category-btn.active, .category-btn:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+.category-btn img.category-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  border-radius: 0.3rem;
+}
+.subcategories-list {
+  flex: 1 1 320px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.7rem;
+}
+.subcategory-link {
+  display: block;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  color: var(--black);
+  font-size: 1.08rem;
+  border-radius: 0.3rem;
+  transition: background 0.2s, color 0.2s;
+}
+.subcategory-link:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+@media (max-width: 900px) {
+  .categories-megamenu {
+    flex-direction: column;
+    width: 98vw;
+    min-width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .categories-list {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: var(--border);
+    padding: 0.5rem 0.5rem;
+    overflow-x: auto;
+    gap: 0.5rem;
+  }
+  .category-btn {
+    font-size: 1rem;
+    padding: 0.7rem 0.7rem;
+  }
+  .subcategories-list {
+    padding: 1rem 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  .categories-megamenu {
+    width: 100vw;
+    left: 0;
+    transform: none;
+    border-radius: 0;
+  }
+  .categories-list {
+    flex-direction: column;
+    border-bottom: none;
+    border-right: var(--border);
+    min-width: 120px;
+    max-width: 150px;
+    padding: 0.2rem 0;
+  }
+  .category-btn {
+    font-size: 0.98rem;
+    padding: 0.6rem 0.5rem;
+  }
+  .subcategories-list {
+    padding: 0.7rem 0.5rem;
+  }
+}

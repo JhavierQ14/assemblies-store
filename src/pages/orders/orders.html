@@ -1,43 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>my orders</title>
+   <title>Mis Pedidos - Assemblies Store</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="../../css/style.css">
-   <link rel="stylesheet" href="orders/orders.css">
-   <link rel="stylesheet" href="orders/order-modal.css">
+   <link rel="stylesheet" href="../../style.css">
+   <link rel="stylesheet" href="./orders.css">
 </head>
-
 <body>
-
    <header class="header">
-      <div id="header"></div>
+     <div id="header"></div>
    </header>
-
+   
    <div class="heading">
-      <h3>Tus compras</h3>
-      <p><a href="../home/home.html">Inicio </a> <span> / Compras</span></p>
+      <h3>Mis Pedidos</h3>
+      <p><a href="../home/home.html">Inicio</a> <span> / Pedidos</span></p>
    </div>
 
-   <section class="orders">
-      <h1 class="title">Historial de Órdenes</h1>
-      <div id="orders-list" class="orders-timeline"></div>
+   <section class="orders-section">
+      <div class="orders-container">
+         
+         <!-- Filtros y Acciones -->
+         <div class="orders-header">
+            <div class="orders-title">
+               <h2><i class="fas fa-box"></i> Historial de Pedidos</h2>
+               <p>Aquí puedes ver todos tus pedidos y su estado actual</p>
+            </div>
+            <div class="orders-actions">
+               <div class="filter-group">
+                  <label for="status-filter">Filtrar por estado:</label>
+                  <select id="status-filter">
+                     <option value="">Todos los estados</option>
+                     <option value="PROCESSING">Procesando</option>
+                     <option value="CONFIRMED">Confirmado</option>
+                     <option value="PREPARING">Preparando</option>
+                     <option value="SHIPPED">Enviado</option>
+                     <option value="DELIVERED">Entregado</option>
+                     <option value="CANCELLED">Cancelado</option>
+                  </select>
+               </div>
+               <button id="refresh-orders" class="btn-refresh">
+                  <i class="fas fa-sync-alt"></i> Actualizar
+               </button>
+            </div>
+         </div>
+
+         <!-- Lista de Órdenes -->
+         <div id="orders-list" class="orders-list">
+            <div class="loading-orders">
+               <i class="fas fa-spinner fa-spin"></i>
+               <span>Cargando pedidos...</span>
+            </div>
+         </div>
+
+      </div>
    </section>
 
+   <!-- Modal de Detalles de Orden -->
+   <div id="order-detail-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3>Detalles del Pedido</h3>
+            <button class="modal-close" onclick="closeOrderDetailModal()">
+               <i class="fas fa-times"></i>
+            </button>
+         </div>
+         <div id="order-detail-content">
+            <!-- Contenido dinámico -->
+         </div>
+      </div>
+   </div>
+
+   <!-- Modal de Confirmación de Cancelación -->
+   <div id="cancel-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3>Cancelar Pedido</h3>
+            <button class="modal-close" onclick="closeCancelModal()">
+               <i class="fas fa-times"></i>
+            </button>
+         </div>
+         <div class="cancel-content">
+            <div class="warning-icon">
+               <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <p>¿Estás seguro de que quieres cancelar este pedido?</p>
+            <p class="cancel-note">Esta acción no se puede deshacer.</p>
+            <div class="cancel-actions">
+               <button onclick="closeCancelModal()" class="btn-secondary">
+                  No, mantener pedido
+               </button>
+               <button id="confirm-cancel-btn" class="btn-danger">
+                  Sí, cancelar pedido
+               </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
    <footer class="footer">
-      <div id="footer"></div>
+     <div id="footer"></div>
    </footer>
 
-   <script src="/src/components/include-fragments.js"></script>
-   <script src="orders/orders.js"></script>
-   <script src="order/order.js"></script>
-   <script src="../../js/header-theme-toggle.js"></script>
-   <script src="../../js/script.js"></script>
-
+   <script src="../../components/include-fragments.js"></script>
+   <script type="module" src="../../js/cart-init.js"></script>
+   <script type="module" src="./orders.js"></script>
 </body>
-
 </html>

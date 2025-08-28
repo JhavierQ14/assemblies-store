@@ -1,29 +1,29 @@
-// Pequeña lógica para el header: toggle del profile y actualizar nombre/avatar si hay perfil en localStorage
+// Lógica para actualizar nombre/avatar del perfil desde localStorage
 (function () {
   function initHeaderProfile() {
-    const userBtn = document.getElementById('user-btn');
-    const menuBtn = document.getElementById('menu-btn');
-    const profileEl = document.querySelector('.profile');
-    const navbarEl = document.querySelector('.navbar');
-
-    if (userBtn && profileEl) {
-      userBtn.addEventListener('click', () => profileEl.classList.toggle('active'));
-    }
-
-    if (menuBtn && navbarEl) {
-      menuBtn.addEventListener('click', () => navbarEl.classList.toggle('active'));
-    }
-
+    // Solo manejar la actualización de datos del perfil, no events de click
     try {
       const user = JSON.parse(localStorage.getItem('user_profile') || 'null');
       if (user) {
         const nameEl = document.getElementById('profile-name-mini');
         const avatarEl = document.getElementById('profile-avatar-mini');
-        if (nameEl) nameEl.textContent = user.name || user.username || nameEl.textContent;
-        if (avatarEl && user.avatar) avatarEl.src = user.avatar;
+        
+        // Mostrar nombre completo (nombres + apellidos)
+        if (nameEl) {
+          const fullName = [user.names, user.surnames].filter(Boolean).join(' ');
+          nameEl.textContent = fullName || 'Usuario';
+        }
+        
+        // Mostrar imagen de perfil o imagen por defecto
+        if (avatarEl) {
+          avatarEl.src = user.imagePerfil || '/assets/images/user-icon.png';
+          avatarEl.onerror = () => {
+            avatarEl.src = '/assets/images/user-icon.png';
+          };
+        }
       }
     } catch (e) {
-      // ignore
+      // Ignorar errores de localStorage
     }
 
     // logout buttons (may be present inside fragment)
@@ -32,8 +32,35 @@
         localStorage.removeItem('user_profile');
         localStorage.removeItem('access_token');
         // redirect to login
-        window.location.href = './pages/auth/login/login.html';
+        window.location.href = '/pages/auth/login/login.html';
       }
+    });
+
+    // Inicializar contador del carrito desde localStorage
+    function updateCartBadge(count) {
+      const badge = document.getElementById('cart-count-badge');
+      if (!badge) return;
+      const n = Number(count) || 0;
+      if (n > 0) {
+        badge.textContent = String(n);
+        badge.style.display = 'inline-block';
+      } else {
+        badge.textContent = '';
+        badge.style.display = 'none';
+      }
+    }
+
+    try {
+      const stored = localStorage.getItem('totalItemCart');
+      if (stored != null) updateCartBadge(Number(stored));
+    } catch (e) {
+      // ignore
+    }
+
+    // Escuchar eventos de actualización del carrito desde otras partes de la app
+    window.addEventListener('cart:update', (ev) => {
+      const total = ev?.detail?.total;
+      updateCartBadge(total);
     });
   }
 

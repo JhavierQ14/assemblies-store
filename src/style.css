@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+@import url('./components/header/header-categories.css');
+@import url('./components/header/header-categories-megamenu.css');
 
 :root{
    --yellow: #ffd700;
@@ -196,6 +198,24 @@ section{
 .header .flex .profile .account a{
    color: var(--black);
    text-decoration: underline;
+}
+
+/* cart count badge */
+.cart-link { position: relative; display: inline-block; }
+.cart-count-badge {
+   position: absolute;
+   top: -6px;
+   right: -8px;
+   min-width: 18px;
+   height: 18px;
+   padding: 0 5px;
+   background: var(--red);
+   color: #fff;
+   border-radius: 12px;
+   font-size: 12px;
+   line-height: 18px;
+   text-align: center;
+   display: none;
 }
 
 .header .flex .profile .account a:hover{

@@ -2,7 +2,7 @@ import { signupApi } from '../../../services/auth/signupService.js';
 import { saveTokens, saveUserProfile } from '../../../js/auth-storage.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.querySelector('.login-form');
+  const form = document.querySelector('.auth-form');
   if (!form) return;
 
   const imageFileInput = document.getElementById('imageFile');
@@ -28,6 +28,66 @@ document.addEventListener('DOMContentLoaded', function() {
         hiddenImageField.value = evt.target.result;
       };
       reader.readAsDataURL(file);
+    });
+  }
+
+  // Password validation in real time
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordInput = document.getElementById('confirmPassword');
+  const requirements = {
+    length: document.getElementById('length'),
+    uppercase: document.getElementById('uppercase'),
+    lowercase: document.getElementById('lowercase'),
+    number: document.getElementById('number')
+  };
+
+  function validatePasswordRequirements(password) {
+    if (requirements.length) {
+      if (password.length >= 8) {
+        requirements.length.classList.add('valid');
+      } else {
+        requirements.length.classList.remove('valid');
+      }
+    }
+    
+    if (requirements.uppercase) {
+      if (/[A-Z]/.test(password)) {
+        requirements.uppercase.classList.add('valid');
+      } else {
+        requirements.uppercase.classList.remove('valid');
+      }
+    }
+    
+    if (requirements.lowercase) {
+      if (/[a-z]/.test(password)) {
+        requirements.lowercase.classList.add('valid');
+      } else {
+        requirements.lowercase.classList.remove('valid');
+      }
+    }
+    
+    if (requirements.number) {
+      if (/\d/.test(password)) {
+        requirements.number.classList.add('valid');
+      } else {
+        requirements.number.classList.remove('valid');
+      }
+    }
+  }
+
+  if (passwordInput) {
+    passwordInput.addEventListener('input', function() {
+      validatePasswordRequirements(this.value);
+    });
+  }
+
+  if (confirmPasswordInput && passwordInput) {
+    confirmPasswordInput.addEventListener('input', function() {
+      if (this.value && passwordInput.value && this.value !== passwordInput.value) {
+        this.style.borderColor = 'var(--error)';
+      } else {
+        this.style.borderColor = '';
+      }
     });
   }
 
@@ -82,6 +142,17 @@ document.addEventListener('DOMContentLoaded', function() {
         showRegisterAlert(err.message || 'Error en el registro', 'error');
       }
     }
+  });
+
+  // Social login buttons (placeholder functionality)
+  const socialButtons = document.querySelectorAll('.social-btn');
+  socialButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const provider = this.classList.contains('google') ? 'Google' : 
+                     this.classList.contains('facebook') ? 'Facebook' : 'Microsoft';
+      showRegisterAlert(`Registro con ${provider} próximamente disponible`, 'warning');
+    });
   });
 });
 

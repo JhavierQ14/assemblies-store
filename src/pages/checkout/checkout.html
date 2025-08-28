@@ -4,53 +4,168 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>checkout</title>
+   <title>Checkout - Finalizar Compra</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="../../css/style.css">
-   <link rel="stylesheet" href="checkout/checkout.css">
+   <link rel="stylesheet" href="../../style.css">
+   <link rel="stylesheet" href="./checkout.css">
 </head>
 <body>
-   <header class="header"><div id="header"></div></header>
-   <div class="heading"><h3>Finalizar compra</h3><p><a href="../home/home.html">Inicio </a> <span> / Checkout</span></p></div>
-   <section class="checkout">
-      <h1 class="title">Resumen de tu pedido</h1>
-      <form action="" method="post" class="checkout-container horizontal-layout">
-         <div class="cart-items">
-            <h3>Productos en tu carrito</h3>
-            <div class="cart-table-wrapper">
-              <table class="cart-table">
-                <thead><tr><th>Producto</th><th>Cantidad</th><th>Precio unitario</th><th>Subtotal</th></tr></thead>
-                <tbody id="checkout-products-body"></tbody>
-              </table>
+   <header class="header">
+     <div id="header"></div>
+   </header>
+   
+   <div class="heading">
+      <h3>Finalizar Compra</h3>
+      <p><a href="../home/home.html">Inicio</a> <span> / <a href="../cart/cart.html">Carrito</a> / Checkout</span></p>
+   </div>
+
+   <section class="checkout-section">
+      <div class="checkout-container">
+         
+         <!-- Productos del Carrito -->
+         <div class="checkout-products">
+            <h2><i class="fas fa-shopping-cart"></i> Resumen del Pedido</h2>
+            <div id="checkout-products-list" class="products-list">
+               <!-- Los productos se cargarán automáticamente -->
             </div>
-            <a href="../cart/cart.html" class="btn secondary-btn">Ver carrito</a>
+            <div class="order-summary">
+               <div class="summary-row">
+                  <span>Subtotal:</span>
+                  <span id="checkout-subtotal">$0.00</span>
+               </div>
+               <div class="summary-row">
+                  <span>Envío:</span>
+                  <span id="checkout-shipping">Gratis</span>
+               </div>
+               <div class="summary-row total-row">
+                  <span>Total:</span>
+                  <span id="checkout-total">$0.00</span>
+               </div>
+            </div>
+            <a href="../cart/cart.html" class="btn-secondary">
+               <i class="fas fa-edit"></i> Editar Carrito
+            </a>
          </div>
-         <div class="user-info">
-            <h3>Tus datos</h3>
-            <div class="user-data-row"><i class="fas fa-user"></i><span id="checkout-user-name">Usuario</span></div>
-            <div class="user-data-row"><i class="fas fa-phone"></i><span id="checkout-user-phone"></span></div>
-            <div class="user-data-row"><i class="fas fa-envelope"></i><span id="checkout-user-email"></span></div>
-            <a href="../update_profile/update_profile.html" class="btn secondary-btn">Actualizar datos</a>
-            <h3>Dirección de entrega</h3>
-            <div class="user-data-row"><i class="fas fa-map-marker-alt"></i><span id="checkout-user-address"></span></div>
-            <a href="../update_address/update_address.html" class="btn secondary-btn">Actualizar dirección</a>
-            <select name="method" class="box" id="payment-method" required>
-               <option value="" disabled selected>Selecciona método de pago</option>
-               <option value="cash on delivery">Pago contra entrega</option>
-               <option value="credit card">Tarjeta de crédito</option>
-               <option value="debit card">Tarjeta de débito</option>
-               <option value="paypal">PayPal</option>
-            </select>
-            <div id="card-panel" class="card-panel" style="display:none;"></div>
-            <div id="paypal-panel" class="paypal-panel" style="display:none;"></div>
-            <div id="cod-panel" class="cod-panel" style="display:none;"></div>
-            <input type="submit" value="Realizar pedido" name="order" class="btn order-btn">
+
+         <!-- Formulario de Checkout -->
+         <div class="checkout-form">
+            <form id="checkout-form">
+               
+               <!-- Datos del Usuario -->
+               <div class="form-section">
+                  <h3><i class="fas fa-user"></i> Datos Personales</h3>
+                  <div id="user-info-display" class="user-info-display">
+                     <!-- Los datos del usuario se cargarán automáticamente -->
+                  </div>
+                  <a href="../profile/profile.html" class="btn-link">
+                     <i class="fas fa-edit"></i> Actualizar datos personales
+                  </a>
+               </div>
+
+               <!-- Dirección de Envío -->
+               <div class="form-section">
+                  <h3><i class="fas fa-map-marker-alt"></i> Dirección de Envío</h3>
+                  <div class="address-form">
+                     <div class="input-group">
+                        <label for="street">Calle y Número *</label>
+                        <input type="text" id="street" name="street" required 
+                               placeholder="Ej: Calle Principal #123">
+                     </div>
+                     <div class="input-row">
+                        <div class="input-group">
+                           <label for="city">Ciudad *</label>
+                           <input type="text" id="city" name="city" required 
+                                  placeholder="Ej: Panamá">
+                        </div>
+                        <div class="input-group">
+                           <label for="postalCode">Código Postal</label>
+                           <input type="text" id="postalCode" name="postalCode" 
+                                  placeholder="Ej: 0823">
+                        </div>
+                     </div>
+                     <div class="input-group">
+                        <label for="country">País *</label>
+                        <select id="country" name="country" required>
+                           <option value="">Seleccionar país</option>
+                           <option value="PA" selected>Panamá</option>
+                           <option value="CR">Costa Rica</option>
+                           <option value="GT">Guatemala</option>
+                           <option value="SV">El Salvador</option>
+                           <option value="HN">Honduras</option>
+                           <option value="NI">Nicaragua</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Método de Pago -->
+               <div class="form-section">
+                  <h3><i class="fas fa-credit-card"></i> Método de Pago</h3>
+                  <div class="payment-methods">
+                     <div class="payment-option">
+                        <input type="radio" id="credit-card" name="paymentMethod" value="CREDIT_CARD">
+                        <label for="credit-card">
+                           <i class="fas fa-credit-card"></i>
+                           <span>Tarjeta de Crédito</span>
+                        </label>
+                     </div>
+                     <div class="payment-option">
+                        <input type="radio" id="debit-card" name="paymentMethod" value="DEBIT_CARD">
+                        <label for="debit-card">
+                           <i class="fas fa-credit-card"></i>
+                           <span>Tarjeta de Débito</span>
+                        </label>
+                     </div>
+                     <div class="payment-option">
+                        <input type="radio" id="cash" name="paymentMethod" value="CASH">
+                        <label for="cash">
+                           <i class="fas fa-money-bill-wave"></i>
+                           <span>Pago Contra Entrega</span>
+                        </label>
+                     </div>
+                     <div class="payment-option">
+                        <input type="radio" id="transfer" name="paymentMethod" value="TRANSFER">
+                        <label for="transfer">
+                           <i class="fas fa-university"></i>
+                           <span>Transferencia Bancaria</span>
+                        </label>
+                     </div>
+                  </div>
+                  <div id="payment-details" class="payment-details" style="display: none;">
+                     <!-- Aquí se mostrarán detalles adicionales según el método seleccionado -->
+                  </div>
+               </div>
+
+               <!-- Botones de Acción -->
+               <div class="form-actions">
+                  <button type="button" class="btn-secondary" onclick="window.history.back()">
+                     <i class="fas fa-arrow-left"></i> Volver
+                  </button>
+                  <button type="submit" id="place-order-btn" class="btn-primary">
+                     <i class="fas fa-check"></i> Realizar Pedido
+                  </button>
+               </div>
+            </form>
          </div>
-      </form>
+
+      </div>
    </section>
-   <script src="checkout/checkout.js"></script>
-   <script src="checkout/checkout-user.js"></script>
-   <script src="checkout/checkout-user-data.js"></script>
-   <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
+
+   <!-- Modal de Confirmación -->
+   <div id="order-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+         <div id="order-modal-content">
+            <!-- Contenido dinámico -->
+         </div>
+      </div>
+   </div>
+
+   <footer class="footer">
+     <div id="footer"></div>
+   </footer>
+
+   <script src="../../components/include-fragments.js"></script>
+   <script type="module" src="../../js/cart-init.js"></script>
+   <script type="module" src="./checkout.js"></script>
 </body>
 </html>

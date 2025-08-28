@@ -1,26 +1,42 @@
 <section class="flex">
-    <a href="./" class="logo">Assemblies Store</a>
+    <a href="/" class="logo">Assemblies Store</a>
     <nav class="navbar">
-      <a href="./">Inicio</a>
-      <a href="./pages/about/about.html">Acerca de nosotros</a>
-      <a href="./pages/store/store.html">Tienda</a>
-      <a href="./pages/orders/orders.html">Compras</a>
-      <a href="./pages/off-sale/off-sale.html">Ofertas</a>
+      <a href="/">Inicio</a>
+      <a href="/pages/about/about.html">Acerca de nosotros</a>
+      <a href="/pages/store/store.html">Tienda</a>
+      <div class="categories-megamenu-dropdown">
+        <a href="#" class="categories-toggle">Categorías <i class="fas fa-chevron-down"></i></a>
+        <button class="back-to-main" style="display:none;">Volver al menú principal</button>
+        <div class="categories-megamenu" id="categories-megamenu" style="display:none;">
+          <div class="categories-list" id="categories-list">
+            <!-- Categorías dinámicas -->
+          </div>
+          <div class="subcategories-list" id="subcategories-list">
+            <!-- Subcategorías dinámicas -->
+          </div>
+        </div>
+      </div>
+      <a href="/pages/contact/contact.html">Contacto</a>
+      <a href="/pages/off-sale.html">Ofertas</a>
     </nav>
     <div class="icons">
-      <a href="./pages/search/search.html"><i class="fas fa-search"></i></a>
-      <a href="./pages/cart/cart.html"><i class="fas fa-shopping-cart"></i></a>
+      <a href="/pages/search/search.html"><i class="fas fa-search"></i></a>
+      <a href="/pages/cart/cart.html" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count-badge" id="cart-count-badge" aria-hidden="true"></span>
+      </a>
       <div id="user-btn" class="fas fa-user"></div>
       <div id="menu-btn" class="fas fa-bars"></div>
     </div>
     <div class="profile">
       <div class="profile-user-row">
-        <img class="profile-avatar-mini" id="profile-avatar-mini" src="./assets/images/user-icon.png" alt="Avatar">
+        <img class="profile-avatar-mini" id="profile-avatar-mini" src="/assets/images/user-icon.png" alt="Avatar">
         <p class="name" id="profile-name-mini">Usuario</p>
       </div>
       <div class="flex">
-        <a href="./pages/profile/profile.html" class="btn profile-btn-mini">Mi perfil</a>
-        <a href="./pages/auth/login/login.html" class="delete-btn logout-btn-mini">Cerrar sesión</a>
+        <a href="/pages/profile/profile.html" class="btn profile-btn-mini">Mi perfil</a>
+        <a href="/pages/orders/orders.html" class="btn profile-btn-mini">Mis pedidos</a>
+        <a href="/pages/auth/login/login.html" class="delete-btn logout-btn-mini">Cerrar sesión</a>
       </div>
     </div>
   </section>

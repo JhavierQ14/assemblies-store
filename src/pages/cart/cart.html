@@ -4,30 +4,56 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>my cart</title>
+   <title>Mi Carrito - Assemblies Store</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-   <link rel="stylesheet" href="../../css/style.css">
-   <link rel="stylesheet" href="cart/cart.css">
+   <link rel="stylesheet" href="../../style.css">
+   <link rel="stylesheet" href="./cart.css">
 </head>
 <body>
    <header class="header">
      <div id="header"></div>
    </header>
-   <div class="heading">
-      <h3>Carrito de compras</h3>
-      <p><a href="../home/home.html">Inicio </a> <span> / Carrito</span></p>
-   </div>
-   <section class="products">
-      <h1 class="title">Tu carrito</h1>
-      <div class="cart-total">
-         <p>Total a pagar : <span>$0</span></p>
-         <a href="../checkout/checkout.html" class="btn">Finalizar compra</a>
-      </div>
-      <div class="box-container"></div>
-      <div class="more-btn">
-         <a href="#" class="delete-btn">Eliminar todo</a>
+
+   <!-- Hero Section -->
+   <section class="hero-cart">
+      <div class="hero-content">
+         <div class="hero-text">
+            <h1>Tu Carrito de Compras</h1>
+            <p>Revisa y gestiona los productos que has seleccionado</p>
+            <div class="breadcrumb">
+               <a href="../home/home.html">
+                  <i class="fas fa-home"></i> Inicio
+               </a>
+               <span class="separator">></span>
+               <span class="current">Carrito</span>
+            </div>
+         </div>
+         <div class="hero-visual">
+            <div class="floating-elements">
+               <div class="floating-cart">
+                  <i class="fas fa-shopping-cart"></i>
+               </div>
+               <div class="floating-heart">
+                  <i class="fas fa-heart"></i>
+               </div>
+               <div class="floating-star">
+                  <i class="fas fa-star"></i>
+               </div>
+            </div>
+         </div>
       </div>
    </section>
+
+   <!-- Cart Content -->
+   <section class="cart-section">
+      <div class="container">
+         <div class="cart-wrapper">
+            <div class="box-container"></div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Quick View Modal (conservado para funcionalidad) -->
    <div id="quickViewModal" class="quick-view-modal" style="display:none;">
      <div class="quick-view-content">
        <span class="close-modal" id="closeQuickView">&times;</span>
@@ -41,12 +67,15 @@
        </div>
      </div>
    </div>
+
    <footer class="footer">
      <div id="footer"></div>
    </footer>
-  <script src="/src/components/include-fragments.js"></script>
+
+  <script src="../../components/include-fragments.js"></script>
   <script src="../../js/script.js"></script>
-  <script src="cart/cart.js"></script>
+  <script type="module" src="../../js/cart-init.js"></script>
+  <script type="module" src="./cart.js"></script>
   <script src="../../js/header-theme-toggle.js"></script>
 </body>
 </html>

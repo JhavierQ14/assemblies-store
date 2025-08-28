@@ -13,19 +13,37 @@
     try {
       const headerContainer = document.querySelector('#header');
       const footerContainer = document.querySelector('#footer');
-
+      
       if (headerContainer) {
-        const headerHtml = await fetchText('./components/header/header.html');
+        const headerUrl = '/components/header/header.html';
+        const headerHtml = await fetchText(headerUrl);
         headerContainer.innerHTML = headerHtml;
-        // cargar script de profile si existe
-        const script = document.createElement('script');
-        script.src = './components/header/header-profile.js';
-        script.defer = true;
-        document.body.appendChild(script);
+        
+        // Esperar un momento para que el DOM se actualice
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+        // Cargar scripts secuencialmente para evitar conflictos
+        const menuScript = document.createElement('script');
+        menuScript.src = '/components/header/header-menu.js';
+        menuScript.onload = () => {
+          // Cargar script de profile después del menú
+          const profileScript = document.createElement('script');
+          profileScript.src = '/components/header/header-profile.js';
+          profileScript.onload = () => {
+            // Cargar script de categorías al final como módulo ES6
+            const categoriesScript = document.createElement('script');
+            categoriesScript.type = 'module'; // Agregar type="module"
+            categoriesScript.src = '/components/header/header-categories-megamenu.js';
+            document.body.appendChild(categoriesScript);
+          };
+          document.body.appendChild(profileScript);
+        };
+        document.body.appendChild(menuScript);
       }
 
       if (footerContainer) {
-        const footerHtml = await fetchText('./components/footer/footer.html');
+        const footerUrl = '/components/footer/footer.html';
+        const footerHtml = await fetchText(footerUrl);
         footerContainer.innerHTML = footerHtml;
       }
     } catch (err) {

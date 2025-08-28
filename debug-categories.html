@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Categorías</title>
+    <style>
+        .categories-megamenu {
+            border: 2px solid red;
+            padding: 20px;
+            margin: 20px;
+            background: #f0f0f0;
+        }
+        .category-btn {
+            padding: 10px;
+            margin: 5px;
+            background: #ddd;
+            cursor: pointer;
+        }
+        .category-btn.active {
+            background: #007cba;
+            color: white;
+        }
+        .subcategory-link {
+            display: block;
+            padding: 5px;
+            margin: 2px;
+            background: #eee;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debug del Sistema de Categorías</h1>
+    
+    <!-- Estructura similar al header real -->
+    <div class="categories-megamenu-dropdown">
+        <a href="#" class="categories-toggle">Categorías</a>
+        <div class="categories-megamenu" id="categories-megamenu" style="display:none;">
+            <div class="categories-list" id="categories-list">
+                <!-- Categorías dinámicas -->
+            </div>
+            <div class="subcategories-list" id="subcategories-list">
+                <!-- Subcategorías dinámicas -->
+            </div>
+        </div>
+    </div>
+
+    <button onclick="testCategories()">Probar Categorías</button>
+    <button onclick="clearCache()">Limpiar Caché</button>
+    <button onclick="showDebugInfo()">Mostrar Info Debug</button>
+
+    <div id="debug-info" style="background: #f9f9f9; padding: 10px; margin: 10px; border: 1px solid #ccc;"></div>
+
+    <script type="module">
+        // Simular datos de categorías para testing
+        const testCategoriesData = [
+            {
+                id: 'hardware',
+                name: 'Hardware',
+                imageUrl: '/assets/images/ROG PLACA MADRE.png',
+                subCategories: [
+                    { id: 'cpu', name: 'Procesadores' },
+                    { id: 'gpu', name: 'Tarjetas Gráficas' },
+                    { id: 'ram', name: 'Memoria RAM' }
+                ]
+            },
+            {
+                id: 'perifericos',
+                name: 'Periféricos',
+                imageUrl: '/assets/images/corsair.png',
+                subCategories: [
+                    { id: 'mouse', name: 'Mouse' },
+                    { id: 'keyboard', name: 'Teclados' },
+                    { id: 'monitor', name: 'Monitores' }
+                ]
+            }
+        ];
+
+        window.testCategories = function() {
+            console.log('=== INICIANDO TEST DE CATEGORÍAS ===');
+            
+            // Limpiar contenedores
+            const catList = document.getElementById('categories-list');
+            const subList = document.getElementById('subcategories-list');
+            
+            if (!catList || !subList) {
+                console.error('Elementos no encontrados!');
+                return;
+            }
+
+            catList.innerHTML = '';
+            subList.innerHTML = '';
+
+            // Renderizar categorías
+            testCategoriesData.forEach((cat, idx) => {
+                const div = document.createElement('div');
+                div.className = 'category-btn' + (idx === 0 ? ' active' : '');
+                div.dataset.category = cat.id;
+                div.textContent = cat.name;
+                
+                // Event listener
+                div.addEventListener('click', () => {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                    div.classList.add('active');
+                    renderSubcategories(cat.id);
+                });
+                
+                catList.appendChild(div);
+            });
+
+            // Renderizar primera subcategoría
+            renderSubcategories(testCategoriesData[0].id);
+            
+            // Configurar toggle
+            const toggle = document.querySelector('.categories-toggle');
+            const megamenu = document.getElementById('categories-megamenu');
+            
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isVisible = megamenu.style.display !== 'none';
+                megamenu.style.display = isVisible ? 'none' : 'block';
+                console.log('Toggle clicked, menu visible:', !isVisible);
+            });
+
+            console.log('Test completado!');
+        };
+
+        function renderSubcategories(catId) {
+            const subList = document.getElementById('subcategories-list');
+            const cat = testCategoriesData.find(c => c.id === catId);
+            
+            subList.innerHTML = '';
+            
+            if (cat && cat.subCategories) {
+                cat.subCategories.forEach(sub => {
+                    const a = document.createElement('a');
+                    a.className = 'subcategory-link';
+                    a.href = '#';
+                    a.textContent = sub.name;
+                    subList.appendChild(a);
+                });
+            }
+            
+            console.log('Subcategorías renderizadas para:', catId);
+        }
+
+        window.clearCache = function() {
+            localStorage.removeItem('categoriesData');
+            localStorage.removeItem('categoriesData_exp');
+            console.log('Caché limpiado');
+        };
+
+        window.showDebugInfo = function() {
+            const info = document.getElementById('debug-info');
+            info.innerHTML = `
+                <h3>Estado Actual:</h3>
+                <p><strong>categories-list:</strong> ${!!document.getElementById('categories-list')}</p>
+                <p><strong>subcategories-list:</strong> ${!!document.getElementById('subcategories-list')}</p>
+                <p><strong>categories-toggle:</strong> ${!!document.querySelector('.categories-toggle')}</p>
+                <p><strong>categories-megamenu:</strong> ${!!document.getElementById('categories-megamenu')}</p>
+                <p><strong>Cache data:</strong> ${localStorage.getItem('categoriesData') ? 'Existe' : 'No existe'}</p>
+                <p><strong>Window size:</strong> ${window.innerWidth}x${window.innerHeight}</p>
+            `;
+        };
+    </script>
+</body>
+</html>
